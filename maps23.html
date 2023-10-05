@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Maps</title>
+        <link rel="stylesheet" href="maps.css">
+    </head>
+
+    <body>
+        <div class="maps_container">
+            <div class="side_nav">
+                <div class="side_nav_container">
+                    <div class="logo"> <img src="images/earthlogo.png"> </div>
+                    <ul>
+                        <li><a href="#"><img src="images/gps.png"></a></li>
+                        <li><a href="#"><img src="images/machinery.png"></a></li>
+                        <li><a href="#"><img src="images/analytics.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main"> 
+                <div class="map" id="map"></div>
+            </div>
+
+            <script>
+                let map;
+                let marker; 
+                let points = [
+                              { lat: 40.832266, lng: -96.672251},
+                              { lat: 40.832260, lng: -96.672110},
+                                { lat: 40.832252, lng: -96.671920},
+                                { lat: 40.832250, lng: -96.671762},
+                                { lat: 40.832252, lng: -96.671550},
+                                { lat: 40.832248, lng: -96.671428},
+                                { lat: 40.832246, lng: -96.671292},
+                                { lat: 40.832250, lng: -96.671161},
+                                { lat: 40.832252, lng: -96.671015},
+                                { lat: 40.832252, lng: -96.670876},
+                                { lat: 40.832250, lng: -96.670732},
+                                { lat: 40.832250, lng: -96.670566},
+                                { lat: 40.832252, lng: -96.670419},
+                                { lat: 40.832252, lng: -96.670419},
+                                { lat: 40.832252, lng: -96.670096},
+                                { lat: 40.832248, lng:-96.669900},
+                                { lat: 40.832250, lng: -96.669734},
+                                { lat: 40.832256, lng: -96.669536},
+                                { lat: 40.832256, lng:  -96.669416},
+                                { lat: 40.832256, lng: -96.669311}];
+            
+                                let currentIndex = 0;
+
+                                function initMap() {
+                                    const mapOptions = {
+                                        zoom: 18,
+                                        center: points[0],
+                                        mapTypeId: "satellite"  
+                                    };
+                                    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                                    updateMarker();
+                                }
+
+                                function updateMarker() {
+                                    const currentPoint = points[currentIndex];
+                                    const newLocation = new google.maps.LatLng(currentPoint.lat, currentPoint.lng);
+
+                                    if (!marker) {
+                                        marker = new google.maps.Marker({
+                                            position: newLocation,
+                                            map: map,
+                                            title: "Marker",
+                                            icon: {
+                                                url: 'images/tractor.png',  
+                                                scaledSize: new google.maps.Size(35, 25),  
+                                            }
+                                        });
+                                    } else {
+                                        marker.setPosition(newLocation);
+                                    }
+
+                                    //map.setCenter(newLocation);
+
+                                    // Increment the index or loop back to the beginning
+                                    currentIndex = (currentIndex + 1) % points.length;
+
+                                    // Call updateMarker recursively with a delay
+                                    setTimeout(updateMarker, 2000); // Update every 5 seconds (adjust as needed)
+                                }
+
+                                initMap();
+            </script>
+            
+    
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap"
+                    async defer></script>
+        </div>
+    </body>
+</html>
