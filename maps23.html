@@ -12,19 +12,53 @@
                     <div class="logo"> <img src="images/earthlogo.png"> </div>
                     <ul>
                         <li><a href="#"><img src="images/gps.png"></a></li>
-                        <li><a href="#"><img src="images/machinery.png"></a></li>
+                        <li><a href="#"><img src="images/machinery.png" onclick="toggleMachinaryBox()"></a></li>
                         <li><a href="#"><img src="images/analytics.png"></a></li>
                     </ul>
                 </div>
             </div>
             <div class="main"> 
                 <div class="map" id="map"></div>
+                <div class="machinary_box" id="machinary_box">
+                    <div class="robots">
+                        <select>
+                            <option default >Robot-1</option>
+                            <option>Robot-2</option>
+                            <option>Robot-3</option>
+                            <option>Robot-4</option>
+                            <option>Robot-5</option>
+                        </select>
+                    </div>
+                    <div class="dimensions"></div>
+                    <div class="point_A">A: </div>
+                    <div class="point_B">B: </div>
+                </div>
             </div>
 
             <script>
                 let map;
                 let marker; 
                 let points = [
+                
+                    { lat: 	40.832260, lng:  -96.672110	},
+                    { lat: 	40.832252, lng:  -96.671920	},
+                    { lat: 	40.832250, lng:  -96.671762	},
+                    { lat: 	40.832252, lng:  -96.671550	},
+                    { lat: 	40.832248, lng:  -96.671428	},
+                    { lat: 	40.832246, lng:  -96.671292	},
+                    { lat: 	40.832250, lng:  -96.671161	},
+                    { lat: 	40.832252, lng:  -96.671015	},
+                    { lat: 	40.832252, lng:  -96.670876	},
+                    { lat: 	40.832250, lng:  -96.670732	},
+                    { lat: 	40.832250, lng:  -96.670566	},
+                    { lat: 	40.832252, lng:  -96.670419	},
+                    { lat: 	40.832252, lng:  -96.670419	},
+                    { lat: 	40.832252, lng:  -96.670096	},
+                    { lat: 	40.832248, lng:  -96.669900	},
+                    { lat: 	40.832250, lng:  -96.669734	},
+                    { lat: 	40.832256, lng:  -96.669536	},
+                    { lat: 	40.832256, lng:  -96.669416	},
+                    { lat: 	40.832256, lng:  -96.669311	},
                     { lat: 	40.832258, lng:  -96.669274	},
                     { lat: 	40.832224, lng:  -96.669159	},
                     { lat: 	40.832165, lng:  -96.669089 },
@@ -124,7 +158,7 @@
                                     currentIndex = (currentIndex + 1) % points.length;
 
                                     // Call updateMarker recursively with a delay
-                                    setTimeout(updateMarker, 2000); // Update every 5 seconds (adjust as needed)
+                                    setTimeout(updateMarker, 1000); // Update every 5 seconds (adjust as needed)
                                 }
 
                                 initMap();
@@ -133,6 +167,14 @@
     
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap"
                     async defer></script>
+
+            <script>
+                function toggleMachinaryBox() {         
+                    const machinaryBox = document.getElementById("machinary_box");
+                    machinaryBox.style.visibility = (machinaryBox.style.visibility === "visible") ? "hidden" : "visible";
+                }
+            </script>
+                        
         </div>
     </body>
 </html>
