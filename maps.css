@@ -28,9 +28,9 @@ body{
     background-color: rgb(195, 179, 159);
 }
 
-.side_nav:hover{
+/*.side_nav:hover{
     width: 20%;
-}
+}*/
 
 .side_nav_container{
     height: 60%;
@@ -78,6 +78,7 @@ body{
 .main .map{
     height: 100%;
     width: 100%;
+    position: relative;
     background-color: green;
 
 }
@@ -85,3 +86,132 @@ body{
 .hidden {
     display: none;
 }
+
+.main .machinary_box{
+    position: absolute;
+    top: 10%;
+    left: 12%;
+    height: 500px;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 50px rgb(0,0,0);
+    visibility: hidden;
+    background-color: rgb(255,255,255,0.5);
+}
+
+.main .machinary_box .robots,
+.dimensions, .point_A, .point_B{
+    height: 10%;
+    width: 90%;
+    position: relative;
+    background-color: rgb(255,255,255);
+}
+
+.robots select{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    height: 100%;
+    width: 100%;
+    /*width: calc(35vw);*/
+}
+
+select::after {
+    content: '\f107';
+    font-family: FontAwesome; 
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.point_A, .point_B{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input{
+    height: 100%;
+    width: 100%;
+    font-size: medium;
+    color: #4CAF50;
+    padding-left: 1rem;
+}
+
+.machinary_box .btn{
+    background-color: white;
+    height: 7vh;
+    width: 10vw;
+    color: black;
+    border: 3px solid #4CAF50;
+    border-radius: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;     
+}
+
+
+.machinary_box .btn:hover{
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 0 10px black;
+    
+}
+
+.machinary_box .btn:active {
+    transform: translateY(4px);
+}
+
+.machinary_box .sp{
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+}
+
+.machinary_box .reset{
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+
+}
+
+.main .gps_box {
+    position: absolute;
+    top: 10%;
+    left: 12%;
+    height: 85vh;
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5%;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 50px rgb(0,0,0);
+    visibility: hidden;
+    overflow: scroll;
+    padding-top: 4rem;
+    padding-right: 2rem;
+    background-color: rgb(255,255,255,0.5);
+}
+
+.main .gps_box .card{
+    height: 30vh;
+    width: 20vw;
+    
+    background-color: rgb(255,255,255,0.7);
+}
+
+.main .gps_box .card:hover{
+    box-shadow: 0 0 60px black;
+}
+
