@@ -62,7 +62,7 @@
             </div>
 
         </div>
-
+        <script src="field.js"></script>
         <script>
             let map, marker, markerA, markerB;
             let marker_region = [];
@@ -104,8 +104,10 @@
                     center: {lat: 40.832260, lng: -96.672110 },
                     mapTypeId: "satellite"
                 };
+               
                 map = new google.maps.Map(document.getElementById("map"), mapOptions);
                 i = points.length;
+                fieldboundary();
                 updateMarker();
             }
 
