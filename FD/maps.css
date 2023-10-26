@@ -11,6 +11,15 @@ body{
     width: 100vw;
 }
 
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2rem;
+}
+
 .maps_container{
     height: 100%;
     width: 100%;
@@ -18,14 +27,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: antiquewhite;
 }
 
 .side_nav{
-    height: 100%;
-    width: 10%;
-    text-align: center;
-    background-color: rgb(195, 179, 159);
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(225, 199, 166);
 }
 
 /*.side_nav:hover{
@@ -33,45 +46,94 @@ body{
 }*/
 
 .side_nav_container{
-    height: 60%;
-    width: 100%;
+    height: 65%;
+    width: 95%;
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
     gap: 10%;
     /*background-color: bisque;*/
 }
 
-
-.side_nav_container .logo {
-    padding-top: 2rem;
+.side_nav_container .logo{
+    position: absolute;
+    left: 2%;
 }
 
 .side_nav_container .logo img{
-    max-width: calc(7vw);
+    
+    width: calc(5vw);
 }
 
-.side_nav_container ul li{
+.side_nav_container p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px 0px;
+    font-size: calc(0.5vh + 2vw);
+    letter-spacing: 5px;
+    word-spacing: 6px;
+}
+
+.nav_options{
+    height: 35%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(148, 132, 110);
+}
+
+
+.nav_options ul{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 10%;
+    padding: 5px 0px;
+    /*background-color: #4CAF50;*/
+}
+
+.nav_options ul li{
     list-style: none;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: border-bottom 0.3s;
     /*background-color: aqua;*/
 }
 
-.side_nav_container ul li a {
+.nav_options ul li a {
     text-decoration: none;
 }
 
-.side_nav_container ul li a img{
-    width: calc(4vw);
+.nav_options ul li p{
+    font-size: calc(0.5vh + 1vw);
+    margin-left: 5px;
+    letter-spacing: 2px;
+    
+}
+
+.nav_options ul li a img{
+    width: 30px;
     cursor: pointer;
+}
+
+.nav_options ul li:hover{
+    border-bottom: 2px solid black; 
 }
 
 
 .main{
-    height: 100%;
-    width: 90%;
+    height: 80%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(247, 240, 231); 
 }
 
@@ -85,6 +147,75 @@ body{
 
 .hidden {
     display: none;
+}
+
+.main .left_side{
+    height: 100%;
+    width: 0%;
+    position: relative;
+    transition: width 0.2s;
+    background-color:rgb(125, 105, 77);
+}
+
+.main .left_side .left_side_container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.field_boundaries{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.field_boundaries h2{
+    height: 20%;
+    width: 100%;
+    font-size: calc(1vh + 1vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    margin-bottom: 15px;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0px 10px 50px black;
+    background-color: rgb(171, 137, 98);
+}
+
+.field_boundaries ul{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 2%;
+    overflow: scroll;
+}
+
+.field_boundaries ul li{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 0px;
+    /*background-color: antiquewhite;*/
+    background-color: rgba(255, 255, 255, 0.571);
+}
+
+.field_boundaries ul li img{
+    max-width: calc(3vw);
+}
+
+.field_boundaries ul li .content{
+    font-size: calc(0.7vh + 1vw);
 }
 
 .main .machinary_box{
@@ -186,21 +317,22 @@ input{
 
 .main .gps_box {
     position: absolute;
-    top: 10%;
-    left: 12%;
-    height: 85vh;
-    width: 85vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 85%;
+    width: 82%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 5%;
     border-radius: 2rem;
+    padding: 30px 0px;
     box-shadow: 0px 0px 50px rgb(0,0,0);
     visibility: hidden;
     overflow: scroll;
-    padding-top: 4rem;
-    padding-right: 2rem;
+    
     background-color: rgb(255,255,255,0.5);
 }
 
