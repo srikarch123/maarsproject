@@ -6,17 +6,18 @@ CORS(app)
 
 # Create a data structure to store the uploaded coordinates
 coordinates = []
-singleCoordinate=[{"lat":40.832532457322095,"lon":-96.66922804017223}]
+singleCoordinate=[{"lat":40.832532457322095,"lon":-96.66922804017223,"height":341.00}]
 
 @app.route('/upload_coordinates', methods=['POST'])
 def upload_coordinates():
     data = request.get_json()
-    if 'lat' in data and 'lon' in data:
+    if 'lat' in data and 'lon' in data and 'height' in data:
         latitude = data['lat']
         longitude = data['lon']
-        coordinates.append({'lat': latitude, 'lon': longitude})
+        height=data['height']
+        coordinates.append({'lat': latitude, 'lon': longitude,'height':height})
         singleCoordinate.clear()
-        singleCoordinate.append({'lat': latitude, 'lon': longitude})
+        singleCoordinate.append({'lat': latitude, 'lon': longitude,'height':height})
         return jsonify({'message': 'Coordinates uploaded successfully'})
     else:
         return jsonify({'error': 'Invalid data format'}), 400
@@ -34,4 +35,4 @@ def get_single_coordinate():
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=4753)
+    app.run(debug=True,port=4756)
