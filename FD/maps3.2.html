@@ -179,7 +179,7 @@
             async function updateMarker() {
 
 
-                const response = await fetch('http://127.0.0.1:4753/get_single_coordinate');
+                const response = await fetch('http://127.0.0.1:4757/get_single_coordinate');
                 const data = await response.json();
                 console.log("Recieved data coordinates is: ", data.coordinates);
                 console.log("Recieved data is: ", data);
@@ -212,8 +212,24 @@
 
                 //map.setCenter(newLocation);
 
+
+                infoWindow = new google.maps.InfoWindow({
+
+                    content: '<div style="color: blue;">Details</div> <h4>Velocity: </h4> <h4>Altitude:' + currentPoint.height,
+                    //content:'height : '+ currentPoint.height+ '\n velocity : ' , // You can customize the content here
+                });
+
+                // Event listeners for hovering over the marker
+                marker.addListener('mouseover', () => {
+                    infoWindow.open(map, marker);
+                });
+
+                marker.addListener('mouseout', () => {
+                    infoWindow.close();
+                });
                 setTimeout(updateMarker, 100);
                 lastCoordinate = points
+
 
 
             }
