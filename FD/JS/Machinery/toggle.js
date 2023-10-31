@@ -15,8 +15,29 @@ function toggleGpsBox() {
     machinaryBox.style.visibility = "hidden";
 }
 
-function appear() {
+function f_appear() {
     const left_side = document.getElementById("left_side");
     console.log("left_side width is: ", left_side.style.width);
-    left_side.style.width = (left_side.style.width === "0%") ? "40%" : "0%";
+    left_side.style.width = "40%";
+
+    const field_boundaries = document.querySelector(".field_boundaries");
+    const machinary_box = document.querySelector(".machinary_box");
+
+        field_boundaries.style.display = "block";
+        machinary_box.style.display = "none";
+   
+}
+
+function m_appear() {
+    const left_side = document.getElementById("left_side");
+    console.log("left_side width is: ", left_side.style.width);
+    left_side.style.width = "40%";
+
+    const field_boundaries = document.querySelector(".field_boundaries");
+    const machinary_box = document.querySelector(".machinary_box");
+
+  
+        field_boundaries.style.display = "none";
+        machinary_box.style.display = "block";
+    
 }

@@ -4,6 +4,7 @@
 <head>
     <title>Maps</title>
     <link rel="stylesheet" href="CSS/maps.css">
+    <link rel="stylesheet" href="CSS/maps2.css">
 </head>
 
 <body>
@@ -15,13 +16,13 @@
             </div>
             <div class="nav_options">
                 <ul>
-                    <li onclick="appear()"><a href="#"><img src="images/gps.png"></a>
+                    <li onclick="f_appear()"><a href="#"><img src="images/gps.png"></a>
                         <p>Maps</p>
                     </li>
-                    <li onclick="appear()"><a href="#"><img src="images/machinery.png"></a>
+                    <li onclick="m_appear()"><a href="#"><img src="images/machinery.png"></a>
                         <p>Machinery</p>
                     </li>
-                    <li onclick="appear()"><a href="#"><img src="images/analytics.png"></a>
+                    <li onclick="a_appear()"><a href="#"><img src="images/analytics.png"></a>
                         <p>Analytics</p>
                     </li>
                 </ul>
@@ -30,96 +31,99 @@
 
         <div class="main">
             <div class="left_side" id="left_side">
-                <div class="left_side_container">
-                    <div class="field_boundaries">
-                        <h2>Field Boundaries</h2>
-                        <ul>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                            <li><img src="images/tractor.png" />
-                                <div class="content">
-                                    <h4>Roger Memorial Filed-1</h4>
-                                    <p>Area: </p>
-                                </div>
-                            </li>
-                        </ul>
+
+                <div class="field_boundaries">
+                    <h2>Field Boundaries</h2>
+                    <ul>
+                        <li onclick="get_region()"><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li><img src="images/tractor.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-1</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="machinary_box" id="machinary_box">
+                    <div class="robots">
+                        <select>
+                            <option default>- Select -</option>
+                            <option>Robot-1</option>
+                            <option>Robot-2</option>
+                            <option>Robot-3</option>
+                            <option>Robot-4</option>
+                            <option>Robot-5</option>
+                        </select>
                     </div>
+                    <div class="dimensions"></div>
+                    <div class="point_A"><input type="txt" name="A" placeholder="Enter point A" id="input_A"></div>
+                    <div class="point_B"><input type="txt" name="B" placeholder="Enter point B" id="input_B"></div>
+                    <button class="sp btn" onclick="select_points()">Select Points</button>
+                    <button class="reset btn" onclick="reset_points()">Reset</button>
                 </div>
+
             </div>
+
             <div class="map" id="map"></div>
-            <div class="machinary_box" id="machinary_box">
-                <div class="robots">
-                    <select>
-                        <option default>- Select -</option>
-                        <option>Robot-1</option>
-                        <option>Robot-2</option>
-                        <option>Robot-3</option>
-                        <option>Robot-4</option>
-                        <option>Robot-5</option>
-                    </select>
-                </div>
-                <div class="dimensions"></div>
-                <div class="point_A"><input type="txt" name="A" placeholder="Enter point A" id="input_A"></div>
-                <div class="point_B"><input type="txt" name="B" placeholder="Enter point B" id="input_B"></div>
-                <button class="sp btn" onclick="select_points()">Select Points</button>
-                <button class="reset btn" onclick="reset_points()">Reset</button>
-            </div>
+
 
         </div>
         <script src="JS/boundaries.js"></script>
-        <script src="JS/Machinery/machinery.js"></script> 
+        <script src="JS/Machinery/machinery.js"></script>
         <script>
             let map, marker, markerA, markerB;
             let marker_region = [];
@@ -153,11 +157,17 @@
             }
 
             fetchCoordinates();
-            function initMap() {
+
+            async function initMap() {
+                const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+                const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
+                    "marker",);
+
                 const mapOptions = {
                     zoom: 18,
                     center: { lat: 40.832260, lng: -96.672110 },
-                    mapTypeId: "satellite"
+                    mapTypeId: "satellite",
+                    disableDefaultUI: true,
                 };
 
                 map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -208,6 +218,17 @@
 
             }
 
+
+        </script>
+        <script>
+            function get_region() {
+                console.log("inside get_region: ");
+                let field_boundary = [];
+                field_boundary[0] = { lat: 40.83698738719271, lng: -96.66739830746856 };
+                console.log("fieldboundary[0] is: ", field1[3]);
+                map.setCenter(field1[0]);
+
+            }
 
         </script>
         <script
