@@ -3,41 +3,97 @@
 
 <head>
     <title>Maps</title>
-    <link rel="stylesheet" href="maps.css">
+    <link rel="stylesheet" href="CSS/maps.css">
 </head>
 
 <body>
     <div class="maps_container">
         <div class="side_nav">
             <div class="side_nav_container">
-                <div class="logo"> <img src="images/earthlogo.png"> </div>  
-                <p> FARM DIGITIZATION</p> 
-            </div>  
+                <div class="logo"> <img src="images/earthlogo.png"> </div>
+                <p> FARM DIGITIZATION</p>
+            </div>
             <div class="nav_options">
                 <ul>
-                    <li onclick="appear()"><a href="#"><img src="images/gps.png" ></a><p>Maps</p></li>
-                    <li onclick="appear()"><a href="#"><img src="images/machinery.png"></a><p>Machinery</p></li>
-                    <li onclick="appear()"><a href="#"><img src="images/analytics.png"></a><p>Analytics</p></li>
+                    <li onclick="appear()"><a href="#"><img src="images/gps.png"></a>
+                        <p>Maps</p>
+                    </li>
+                    <li onclick="appear()"><a href="#"><img src="images/machinery.png"></a>
+                        <p>Machinery</p>
+                    </li>
+                    <li onclick="appear()"><a href="#"><img src="images/analytics.png"></a>
+                        <p>Analytics</p>
+                    </li>
                 </ul>
             </div>
         </div>
-        
+
         <div class="main">
             <div class="left_side" id="left_side">
                 <div class="left_side_container">
                     <div class="field_boundaries">
                         <h2>Field Boundaries</h2>
                         <ul>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
-                            <li><img src="images/tractor.png"/><div class="content"><h4>Roger Memorial Filed-1</h4> <p>Area: </p></div></li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
+                            <li><img src="images/tractor.png" />
+                                <div class="content">
+                                    <h4>Roger Memorial Filed-1</h4>
+                                    <p>Area: </p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -62,32 +118,34 @@
             </div>
 
         </div>
-        <script src="field.js"></script>
+        <script src="JS/boundaries.js"></script>
+        <script src="JS/Machinery/machinery.js"></script> 
         <script>
             let map, marker, markerA, markerB;
             let marker_region = [];
-            let points =[];
+            let points = [];
             let currentIndex = 0;
             let regionIndex = 0;
-            let i =0;
+            let i = 0;
+            let lastCoordinate;
 
             var final_A = { lat: null, lon: null };
             var final_B = { lat: null, lon: null };
 
-           
-            
+
+
             async function fetchCoordinates() {
                 try {
-                    const response = await fetch('http://127.0.0.1:4733/get_coordinates');
+                    const response = await fetch('http://127.0.0.1:4751/get_coordinates');
                     const data = await response.json();
                     console.log("Recieved data coordinates is: ", data.coordinates);
                     console.log("Recieved data is: ", data);
                     points = data.coordinates;
-                    console.log("points 1 is: ",points);
+                    console.log("points 1 is: ", points);
                     initMap();
 
                     return data.coordinates;
-                    
+
                 } catch (error) {
                     console.error('Error fetching JSON:', error);
                     return null;
@@ -95,30 +153,38 @@
             }
 
             fetchCoordinates();
-
-           
-
             function initMap() {
                 const mapOptions = {
                     zoom: 18,
-                    center: {lat: 40.832260, lng: -96.672110 },
+                    center: { lat: 40.832260, lng: -96.672110 },
                     mapTypeId: "satellite"
                 };
-               
+
                 map = new google.maps.Map(document.getElementById("map"), mapOptions);
                 i = points.length;
                 fieldboundary();
                 updateMarker();
             }
 
-            function updateMarker() {
+            async function updateMarker() {
 
-                
-                const currentPoint = points[currentIndex];
-                console.log("CurrentPoint is:",i,": ",currentPoint);
-                
+
+                const response = await fetch('http://127.0.0.1:4753/get_single_coordinate');
+                const data = await response.json();
+                console.log("Recieved data coordinates is: ", data.coordinates);
+                console.log("Recieved data is: ", data);
+                if (response.ok) {
+                    points = data.coordinates;
+                }
+                else {
+                    points = lastCoordinate;
+                }
+                console.log("points 1 is: ", points);
+                const currentPoint = points[0];
+                // console.log("CurrentPoint is:",i,": ",currentPoint);
+
                 const newLocation = new google.maps.LatLng(currentPoint.lat, currentPoint.lon);
-                console.log("newLocation is: ",newLocation);
+                console.log("newLocation is: ", newLocation);
 
                 if (!marker) {
                     marker = new google.maps.Marker({
@@ -135,179 +201,19 @@
                 }
 
                 //map.setCenter(newLocation);
-                currentIndex = (currentIndex + 1) % points.length;
-                i++;
-                setTimeout(updateMarker, 1000);
+
+                setTimeout(updateMarker, 100);
+                lastCoordinate = points
 
 
             }
 
-            
 
-            function select_points() {
-
-                //document.getElementById(map).style.cursor = pointer;
-
-                clickListener1 = map.addListener('click', function (event) {
-                    const clickedLocation = event.latLng;
-                    var latitude = clickedLocation.lat();
-                    var longitude = clickedLocation.lng();
-                    const newLocationA = new google.maps.LatLng(latitude, longitude);
-
-                    if (!markerA) {
-                        markerA = new google.maps.Marker({
-                            position: newLocationA,
-                            map: map,
-                            title: "MarkerA",
-                            icon: {
-                                scaledSize: new google.maps.Size(35, 25),
-                            }
-                        });
-                    } else {
-                        markerA.setPosition(newLocationA);
-                    }
-
-
-                    const confirmDialog = confirm(`Selected A coordinates are: \n\nLat: ${latitude}\tLong: ${longitude}`);
-                    if (confirmDialog) {
-                        final_A.lat = latitude;
-                        final_A.lon = longitude;
-                        const coordinatesLabel = document.getElementById('input_A');
-                        coordinatesLabel.value = `${final_A.lat}, ${final_A.lon}`;
-
-                        google.maps.event.removeListener(clickListener1);
-
-                        button2Click();
-
-                    }
-
-                    else {
-                        latitude = null;
-                        longitude = null;
-                    }
-
-
-                });
-
-
-
-            }
-
-            function button2Click() {
-                //alert('Do you want to select Point B')
-                if (1) {
-                    clickListener2 = map.addListener('click', function (event) {
-                        const clickedLocation = event.latLng;
-                        var latitude = clickedLocation.lat();
-                        var longitude = clickedLocation.lng();
-
-                        const newLocationB = new google.maps.LatLng(latitude, longitude);
-
-                        if (!markerB) {
-                            markerB = new google.maps.Marker({
-                                position: newLocationB,
-                                map: map,
-                                title: "MarkerB",
-                                icon: {
-                                    scaledSize: new google.maps.Size(35, 25),
-                                }
-                            });
-                        } else {
-                            markerA.setPosition(newLocationB);
-                        }
-
-
-                        const confirmDialog = confirm(`Selected B coordinates are: \n\nLat: ${latitude}\tLong: ${longitude}`);
-                        if (confirmDialog) {
-                            final_B.lat = latitude;
-                            final_B.lon = longitude;
-                            const coordinatesLabel = document.getElementById('input_B');
-                            coordinatesLabel.value = `${final_B.lat},  ${final_B.lon}`;
-
-                            google.maps.event.removeListener(clickListener2);
-
-                        }
-                        else {
-                            latitude = null;
-                            longitude = null;
-
-                        }
-                        //mapClickListenerEnabled = false;
-                    });
-                    isListening2 = true;
-
-                }
-
-
-            }
-            function reset_points() {
-                const coordinatesLabel = document.getElementById('input_A');
-                coordinatesLabel.value = ''; // Clears the content of the label
-                markerA.setMap(null);
-                markerA = null;
-
-                const coordinatesLabel2 = document.getElementById('input_B');
-                coordinatesLabel2.value = ''; // Clears the content of the label
-                markerB.setMap(null);
-                markerB = null;
-
-            }
-
-            function select_region() {
-
-                for (regionIndex = 0; regionIndex < points.length; regionIndex++) {
-                    const currentPoint = points[regionIndex];
-                    const selected_region = new google.maps.LatLng(currentPoint.lat, currentPoint.lon);
-                    console.log("selected region is: ", selected_region);
-                    if (!marker_region[regionIndex]) {
-                        marker_region[regionIndex] = new google.maps.Marker({
-                            position: selected_region,
-                            map: map,
-                            title: "Marker_region",
-                            icon: {
-                                url: 'images/dot.png',
-                                scaledSize: new google.maps.Size(35, 25),
-                            }
-                        });
-                    } else {
-                        marker[regionIndex].setPosition(selected_region);
-                    }
-                }
-
-
-
-
-            }
         </script>
-
-
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap"
             async defer></script>
-
-        <script>
-            function toggleMachinaryBox() {
-                const machinaryBox = document.getElementById("machinary_box");
-                const gpsBox = document.getElementById("gps_box");
-
-                machinaryBox.style.visibility = (machinaryBox.style.visibility === "visible") ? "hidden" : "visible";
-                gpsBox.style.visibility = "hidden";
-            }
-
-            function toggleGpsBox() {
-                const gpsBox = document.getElementById("gps_box");
-                const machinaryBox = document.getElementById("machinary_box");
-
-                gpsBox.style.visibility = (gpsBox.style.visibility === "visible") ? "hidden" : "visible";
-                machinaryBox.style.visibility = "hidden";
-            }
-
-            function appear(){
-                const left_side = document.getElementById("left_side");
-                console.log("left_side width is: ",left_side.style.width);
-                left_side.style.width = (left_side.style.width === "0%") ? "40%" : "0%";
-            }
-        </script>
+        <script src="JS/toggle.js"> </script>
 
     </div>
 </body>
