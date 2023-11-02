@@ -35,63 +35,63 @@
                 <div class="field_boundaries">
                     <h2>Field Boundaries</h2>
                     <ul>
-                        <li onclick="get_region()"><img src="images/tractor.png" />
+                        <li onclick="get_region(RMF[0][1][1])"><img src="images/RMF-1.png" />
                             <div class="content">
                                 <h4>Roger Memorial Filed-1</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
-                        <li><img src="images/tractor.png" />
+                        <li onclick="get_region(RMF[1][1][1])"><img src="images/RMF-2.png" />
                             <div class="content">
-                                <h4>Roger Memorial Filed-1</h4>
+                                <h4>Roger Memorial Filed-2</h4>
+                                <p>Area: </p>
+                            </div>
+                        </li>
+                        <li onclick="get_region(RMF[2][1][1])"><img src="images/RMF-3.png" />
+                            <div class="content">
+                                <h4>Roger Memorial Filed-3</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
                         <li><img src="images/tractor.png" />
                             <div class="content">
-                                <h4>Roger Memorial Filed-1</h4>
+                                <h4>Roger Memorial Filed-4</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
                         <li><img src="images/tractor.png" />
                             <div class="content">
-                                <h4>Roger Memorial Filed-1</h4>
+                                <h4>Roger Memorial Filed-5</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
                         <li><img src="images/tractor.png" />
                             <div class="content">
-                                <h4>Roger Memorial Filed-1</h4>
+                                <h4>Roger Memorial Filed-6</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
                         <li><img src="images/tractor.png" />
                             <div class="content">
-                                <h4>Roger Memorial Filed-1</h4>
+                                <h4>Roger Memorial Filed-7</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
                         <li><img src="images/tractor.png" />
                             <div class="content">
-                                <h4>Roger Memorial Filed-1</h4>
+                                <h4>Roger Memorial Filed-8</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
                         <li><img src="images/tractor.png" />
                             <div class="content">
-                                <h4>Roger Memorial Filed-1</h4>
+                                <h4>Roger Memorial Filed-9</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
                         <li><img src="images/tractor.png" />
                             <div class="content">
-                                <h4>Roger Memorial Filed-1</h4>
-                                <p>Area: </p>
-                            </div>
-                        </li>
-                        <li><img src="images/tractor.png" />
-                            <div class="content">
-                                <h4>Roger Memorial Filed-1</h4>
+                                <h4>Roger Memorial Filed-10</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
@@ -140,7 +140,7 @@
 
             async function fetchCoordinates() {
                 try {
-                    const response = await fetch('http://127.0.0.1:4751/get_coordinates');
+                    const response = await fetch('http://127.0.0.1:4756/get_coordinates');
                     const data = await response.json();
                     console.log("Recieved data coordinates is: ", data.coordinates);
                     console.log("Recieved data is: ", data);
@@ -179,7 +179,7 @@
             async function updateMarker() {
 
 
-                const response = await fetch('http://127.0.0.1:4757/get_single_coordinate');
+                const response = await fetch('http://127.0.0.1:4756/get_single_coordinate');
                 const data = await response.json();
                 console.log("Recieved data coordinates is: ", data.coordinates);
                 console.log("Recieved data is: ", data);
@@ -229,23 +229,18 @@
                 });
                 setTimeout(updateMarker, 100);
                 lastCoordinate = points
-
-
-
             }
 
 
         </script>
         <script>
-            function get_region() {
+            function get_region(RMF) {
                 console.log("inside get_region: ");
-                let field_boundary = [];
-                field_boundary[0] = { lat: 40.83698738719271, lng: -96.66739830746856 };
-                console.log("fieldboundary[0] is: ", field1[3]);
-                map.setCenter(field1[0]);
+                console.log("RMF value is: ", RMF);
 
+                map.setCenter(RMF);
+                map.setZoom(18);
             }
-
         </script>
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap"
