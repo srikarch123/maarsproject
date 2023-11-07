@@ -124,6 +124,7 @@
         </div>
         <script src="JS/boundaries.js"></script>
         <script src="JS/Machinery/machinery.js"></script>
+        <script src="JS/pathGeneration.js"></script>
         <script>
             let map, marker, markerA, markerB;
             let marker_region = [];
@@ -173,6 +174,7 @@
                 map = new google.maps.Map(document.getElementById("map"), mapOptions);
                 i = points.length;
                 fieldboundary();
+                generatePath();
                 updateMarker();
             }
 
