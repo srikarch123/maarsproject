@@ -4,7 +4,7 @@
 <head>
     <title>Maps</title>
     <link rel="stylesheet" href="CSS/maps.css">
-    <link rel="stylesheet" href="CSS/maps2.css">
+    <link rel="stylesheet" href="CSS/right_side.css">
 </head>
 
 <body>
@@ -31,6 +31,7 @@
 
         <div class="main">
             <div class="left_side" id="left_side">
+                <div class="close" onclick="close_left()"><img src="images/close.png"/> </div>
 
                 <div class="field_boundaries">
                     <h2>Field Boundaries</h2>
@@ -53,13 +54,13 @@
                                 <p>Area: </p>
                             </div>
                         </li>
-                        <li onclick="get_region(RMF[3][1][1])"><img src="images/tractor.png" />
+                        <li onclick="get_region(RMF[3][1][1])"><img src="images/RMF-4.png" />
                             <div class="content">
                                 <h4>Roger Memorial Filed-4</h4>
                                 <p>Area: </p>
                             </div>
                         </li>
-                        <li onclick="get_region(RMF[4][1][1])"><img src="images/tractor.png" />
+                        <li onclick="get_region(RMF[4][1][1])"><img src="images/RMF-5.png" />
                             <div class="content">
                                 <h4>Roger Memorial Filed-5</h4>
                                 <p>Area: </p>
@@ -99,151 +100,114 @@
                 </div>
 
                 <div class="machinary_box" id="machinary_box">
-                    <div class="robots">
-                        <select>
-                            <option default>- Select -</option>
-                            <option>Robot-1</option>
-                            <option>Robot-2</option>
-                            <option>Robot-3</option>
-                            <option>Robot-4</option>
-                            <option>Robot-5</option>
-                        </select>
+                    <div class="contents">
+                        <h2 class="head1" onclick="one_appear()">Robots</h2>
+                        <h2 class="head2" onclick="two_appear()">Customize</h2>
                     </div>
-                    <div class="dimensions"></div>
-                    <div class="point_A"><input type="txt" name="A" placeholder="Enter point A" id="input_A"></div>
-                    <div class="point_B"><input type="txt" name="B" placeholder="Enter point B" id="input_B"></div>
-                    <button class="sp btn" onclick="select_points()">Select Points</button>
-                    <button class="reset btn" onclick="reset_points()">Reset</button>
+
+                    <div class="block_container">
+                        <div class="one">
+                            <ul>
+                                <li onclick="machine_right()"><img src="images/tractor.png" />
+                                    <div class="content">
+                                        <h4>Robot-1</h4>
+                                        <p>Fuel: </p>
+                                    </div>
+                                </li>
+                                <li onclick="machine_right()"><img src="images/tractor.png" />
+                                    <div class="content">
+                                        <h4>Robot-2</h4>
+                                        <p>Fuel: </p>
+                                    </div>
+                                </li>
+                                <li onclick="machine_right()"><img src="images/tractor.png" />
+                                    <div class="content">
+                                        <h4>Robot-3</h4>
+                                        <p>Fuel: </p>
+                                    </div>
+                                </li>
+                                <li onclick="machine_right()"><img src="images/tractor.png" />
+                                    <div class="content">
+                                        <h4>Robot-4</h4>
+                                        <p>Fuel: </p>
+                                    </div>
+                                </li>
+                                <li onclick="machine_right()"><img src="images/tractor.png" />
+                                    <div class="content">
+                                        <h4>Robot-5</h4>
+                                        <p>Fuel: </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="two">
+                            <div class="robots">
+                                <select>
+                                    <option default>- Select Robot -</option>
+                                    <option>Robot-1</option>
+                                    <option>Robot-2</option>
+                                    <option>Robot-3</option>
+                                    <option>Robot-4</option>
+                                    <option>Robot-5</option>
+                                </select>
+
+                                <select>
+                                    <option default>- Select Direction -</option>
+                                    <option>East - West</option>
+                                    <option>North - South</option>
+                                </select>
+
+                                <input type="txt" name="A" placeholder="Enter point A" id="input_A">
+                                <input type="txt" name="B" placeholder="Enter point B" id="input_B">
+                                <div class="btn">
+                                    <button class="sp" onclick="select_points()">Select</button>
+                                    <button class="reset" onclick="reset_points()">Reset</button>
+                                    <button class="submit" onclick="submit_points()">SUBMIT</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
 
             <div class="map" id="map"></div>
 
+            <div class="right_side" id="right_side">
+                <div class="close" onclick="close_right()"><img src="images/close.png"/> </div>
+                <div class="machine_right">
+                    <div class="title_data">
+                        <img src="images/tractor.png" />
+                        <div class="content">
+                            <h4>ROBOT - 1</h4>
+                            <p>Flex-Ro</p>
+                        </div>
+                    </div>
+                    <div class="metaData">
+                        <p>Fuel: </p>
+                        <p>Dist: </p>
+                    </div>
+                    <div class="machine_functions">
+                        <button>Directions</button>
+                        <button>Export</button>
+                        <button>Places</button>
+                    </div>
+                    <div class="utilization">
+                        <img src="images/SS_utilization.png"/>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
+
         <script src="JS/boundaries.js"></script>
         <script src="JS/Machinery/machinery.js"></script>
+        <script src="JS/map_functions.js"></script>
         <script src="JS/pathGeneration.js"></script>
-        <script>
-            let map, marker, markerA, markerB;
-            let marker_region = [];
-            let points = [];
-            let currentIndex = 0;
-            let regionIndex = 0;
-            let i = 0;
-            let lastCoordinate;
-
-            var final_A = { lat: null, lon: null };
-            var final_B = { lat: null, lon: null };
-
-
-
-            async function fetchCoordinates() {
-                try {
-                    const response = await fetch('http://127.0.0.1:4756/get_coordinates');
-                    const data = await response.json();
-                    console.log("Recieved data coordinates is: ", data.coordinates);
-                    console.log("Recieved data is: ", data);
-                    points = data.coordinates;
-                    console.log("points 1 is: ", points);
-                    initMap();
-
-                    return data.coordinates;
-
-                } catch (error) {
-                    console.error('Error fetching JSON:', error);
-                    return null;
-                }
-            }
-
-            fetchCoordinates();
-
-            async function initMap() {
-                const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-                const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
-                    "marker",);
-
-                const mapOptions = {
-                    zoom: 18,
-                    center: { lat: 40.832260, lng: -96.672110 },
-                    mapTypeId: "satellite",
-                    disableDefaultUI: true,
-                };
-
-                map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                i = points.length;
-                fieldboundary();
-                generatePath();
-                updateMarker();
-            }
-
-            async function updateMarker() {
-
-
-                const response = await fetch('http://127.0.0.1:4756/get_single_coordinate');
-                const data = await response.json();
-                console.log("Recieved data coordinates is: ", data.coordinates);
-                console.log("Recieved data is: ", data);
-                if (response.ok) {
-                    points = data.coordinates;
-                }
-                else {
-                    points = lastCoordinate;
-                }
-                console.log("points 1 is: ", points);
-                const currentPoint = points[0];
-                // console.log("CurrentPoint is:",i,": ",currentPoint);
-
-                const newLocation = new google.maps.LatLng(currentPoint.lat, currentPoint.lon);
-                console.log("newLocation is: ", newLocation);
-
-                if (!marker) {
-                    marker = new google.maps.Marker({
-                        position: newLocation,
-                        map: map,
-                        title: "Marker",
-                        icon: {
-                            url: 'images/tractor.png',
-                            scaledSize: new google.maps.Size(35, 25),
-                        }
-                    });
-                } else {
-                    marker.setPosition(newLocation);
-                }
-
-                //map.setCenter(newLocation);
-
-
-                infoWindow = new google.maps.InfoWindow({
-
-                    content: '<div style="color: blue;">Details</div> <h4>Velocity: </h4> <h4>Altitude:' + currentPoint.height,
-                    //content:'height : '+ currentPoint.height+ '\n velocity : ' , // You can customize the content here
-                });
-
-                // Event listeners for hovering over the marker
-                marker.addListener('mouseover', () => {
-                    infoWindow.open(map, marker);
-                });
-
-                marker.addListener('mouseout', () => {
-                    infoWindow.close();
-                });
-                setTimeout(updateMarker, 100);
-                lastCoordinate = points
-            }
-
-
-        </script>
-        <script>
-            function get_region(RMF) {
-                console.log("inside get_region: ");
-                console.log("RMF value is: ", RMF);
-
-                map.setCenter(RMF);
-                map.setZoom(18);
-            }
-        </script>
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap"
             async defer></script>
