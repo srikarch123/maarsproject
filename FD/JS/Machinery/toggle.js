@@ -1,12 +1,4 @@
 
-function toggleMachinaryBox() {
-    const machinaryBox = document.getElementById("machinary_box");
-    const gpsBox = document.getElementById("gps_box");
-
-    machinaryBox.style.visibility = (machinaryBox.style.visibility === "visible") ? "hidden" : "visible";
-    gpsBox.style.visibility = "hidden";
-}
-
 function toggleGpsBox() {
     const gpsBox = document.getElementById("gps_box");
     const machinaryBox = document.getElementById("machinary_box");
@@ -23,9 +15,9 @@ function f_appear() {
     const field_boundaries = document.querySelector(".field_boundaries");
     const machinary_box = document.querySelector(".machinary_box");
 
-        field_boundaries.style.display = "block";
-        machinary_box.style.display = "none";
-   
+    field_boundaries.style.display = "block";
+    machinary_box.style.display = "none";
+
 }
 
 function m_appear() {
@@ -36,8 +28,51 @@ function m_appear() {
     const field_boundaries = document.querySelector(".field_boundaries");
     const machinary_box = document.querySelector(".machinary_box");
 
-  
-        field_boundaries.style.display = "none";
-        machinary_box.style.display = "block";
+
+    field_boundaries.style.display = "none";
+    machinary_box.style.display = "block";
+
+}
+
+function one_appear() {
+    const one = document.querySelector(".one");
+    const two = document.querySelector(".two");
+
+    const head1 = document.querySelector(".head1");
+    const head2 = document.querySelector(".head2");
+
+
+    one.style.display = "block";
+    two.style.display = "none";
+
     
+
+}
+
+function two_appear() {
+    const one = document.querySelector(".one");
+    const two = document.querySelector(".two");
+
+    const head1 = document.querySelector(".head1");
+    const head2 = document.querySelector(".head2");
+
+    one.style.display = "none";
+    two.style.display = "block";
+
+   
+}
+
+function close_left(){
+    const left_side = document.getElementById("left_side");
+    left_side.style.width = "0%";
+}
+
+function close_right(){
+    const right_side = document.getElementById("right_side");
+    right_side.style.width = "0%";
+}
+
+function machine_right(){
+    const right_side = document.getElementById("right_side");
+    right_side.style.width = "40%";
 }
