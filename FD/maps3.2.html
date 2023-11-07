@@ -124,7 +124,7 @@
         </div>
         <script src="JS/boundaries.js"></script>
         <script src="JS/Machinery/machinery.js"></script>
-                <script>
+        <script>
             let map, marker, markerA, markerB;
             let marker_region = [];
             let points = [];
@@ -140,7 +140,7 @@
 
             async function fetchCoordinates() {
                 try {
-                    const response = await fetch('http://127.0.0.1:4758/get_coordinates');
+                    const response = await fetch('http://127.0.0.1:4756/get_coordinates');
                     const data = await response.json();
                     console.log("Recieved data coordinates is: ", data.coordinates);
                     console.log("Recieved data is: ", data);
@@ -173,8 +173,6 @@
                 map = new google.maps.Map(document.getElementById("map"), mapOptions);
                 i = points.length;
                 fieldboundary();
-                generatePath();
-                generateUserPath();
                 updateMarker();
             }
 
