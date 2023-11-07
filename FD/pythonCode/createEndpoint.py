@@ -6,7 +6,7 @@ CORS(app)
 
 # Create a data structure to store the uploaded coordinates
 coordinates = []
-singleCoordinate=[{"lat":40.832532457322095,"lon":-96.66922804017223,"height":341.00}]
+singleCoordinate=[{"lat":40.836982,"lon":-96.667369,"height":341.00}]
 
 @app.route('/upload_coordinates', methods=['POST'])
 def upload_coordinates():
