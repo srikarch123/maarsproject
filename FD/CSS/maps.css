@@ -143,6 +143,7 @@ body{
     height: 100%;
     width: 100%;
     position: relative;
+    z-index: 10;
     background-color: green;
 
 }
@@ -219,36 +220,134 @@ body{
 }
 
 .left_side .machinary_box{
-    height: 80%;
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: bisque;
-}
-
-.machinary_box .att_container{
-    height: 80%;
+    height: 100%;
     width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 10%;
-    /*background-color: blue;*/
+    background-color: bisque;
 }
 
-.machinary_box input{
+.machinary_box .contents{
+    height: 15%;
+    width: 100%;
+    font-size: calc(0.7vh + 0.7vw);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 2;
+    
+    box-shadow: 0px 10px 50px black;
+    background-color: rgb(171, 137, 98);
+}
+.machinary_box .contents h2{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.3px solid rgb(47, 31, 16);
+}
+
+.machinary_box .contents .head1{
+    border-top: 5px solid rgb(77, 51, 18);
+    background-color: rgb(146, 118, 84);
+}
+
+.machinary_box .contents h2:hover{
+    border-top: 5px solid rgb(77, 51, 18);
+    background-color: rgb(146, 118, 84);
+}
+
+
+.machinary_box .block_container{
+    height: 85%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    overflow: scroll;
+    /*background-color: red;*/
+}
+
+.machinary_box .block_container .one{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.machinary_box .block_container ul{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    overflow: scroll;
+    background-color: rgb(146, 118, 84);
+    /*background-color: rgb(96, 219, 235);*/
+}
+
+.machinary_box .block_container ul li{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    padding: 20px 50px;
+    
+    /*background-color: antiquewhite;*/
+    background-color: rgba(255, 255, 255, 0.571);
+}
+
+.machinary_box .block_container ul li img{
+    max-width: calc(3vw);
+}
+
+.machinary_box .block_container ul li .content{
+    font-size: calc(0.7vh + 1vw);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.machinary_box .block_container .two{
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: absolute;
+}
+
+.machinary_box .block_container .robots{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 10px;
+    /*background-color: blueviolet;*/
+}
+
+.machinary_box .block_container .robots input{
     width: calc(20vw);
     padding: 10px;
     font-size: calc(1vw + 0.3vh);
-    margin-top: 10px;
 }
 
-.machinary_box select{
+.machinary_box .block_container .robots select{
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -272,11 +371,49 @@ select::after {
 }
 
 .machinary_box .btn{
-    position: absolute;
-    bottom: 0;
-    height: 30px;
-    width: 90px;
+    height: calc(10vh);
+    width: calc(20vw);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    /*background-color: red;*/
 }
+
+.machinary_box .sp, .reset, .submit{
+    height: 50px;
+    width: 80px;
+    padding: 10px;
+    border-style: none;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255);
+   
+}
+
+.close{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: -7px;
+    z-index: 5;
+
+    /*background: url('images/close.png') center center / cover no-repeat;
+    /*background-color: aquamarine;*/
+}
+
+.close img{
+    max-width: calc(1.5vw);
+    opacity: 0.5;
+}
+
+.sp{color: orange;} .sp:hover{color: white; background-color: orange;}
+.reset{color: red;} .reset:hover{color: white; background-color: red;}
+.submit{color: green;} .submit:hover{color: white; background-color: green}
+
 
 
 

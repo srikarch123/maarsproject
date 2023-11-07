@@ -1,0 +1,68 @@
+.main .right_side{
+    height: 100%;
+    width: 0%;
+    position: relative;
+    transition: width 0.3s;
+    background-color: bisque;
+}
+
+.main .right_side .machine_right{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.machine_right .title_data{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    /*background-color: green;*/
+}
+
+.title_data img{
+    max-width: calc(3vw);
+}
+
+.machine_right .metaData{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    background-color: rgb(213, 190, 163);
+}
+
+.machine_right .machine_functions{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.machine_right .machine_functions button{
+    border-style: none;
+    padding: 20px 30px;
+    border-radius: 1rem;
+    letter-spacing: 3px;
+    background: white;
+}
+
+.machine_right .utilization{
+    height: 40%;
+    width: 100%;
+    position: relative;
+}
+.machine_right .utilization img{
+    max-width: calc(30vw);
+}
