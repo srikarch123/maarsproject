@@ -1,3 +1,6 @@
+let path;
+let newPolygon;
+let listen = false;
 const RMF = [[[
     { lat: 40.846771, lng: -96.467208 },
     { lat: 40.846946, lng: -96.465921 },
@@ -85,6 +88,7 @@ const RMF = [[[
     { lat: 40.850902, lng: -96.469476 },],
 [{ color: 'violet' }, { lat: 40.852134, lng: -96.468769 }],],
 
+
 [[
 
     { lat: 40.850749, lng: -96.469421 },
@@ -144,7 +148,6 @@ const RMF = [[[
     { lat: 40.850697, lng: -96.469420 },
     { lat: 40.850733, lng: -96.469425 },],
 [{ color: 'blue' }, { lat: 40.849769, lng: -96.468096 }]],
-
 
 
 [[
@@ -208,6 +211,7 @@ const RMF = [[[
 
 //const infoWindow =[];
 let j = 0;
+
 const verticalOffset = 0.0001;
 const zIndexBase = 10;
 let clickInfoWindow = null;
@@ -283,7 +287,14 @@ function fieldboundary() {
             // Increase the zIndex for the click InfoWindow to make it appear above mouseover InfoWindows
             clickInfoWindow.setZIndex(zIndexBase + RMF.length);
         })
+    }
+}
 
+/*
+
+function showArrays(event) {
+    const polygon = this;
+    const vertices = polygon.getPath();
 
 
     }
@@ -293,6 +304,11 @@ function showArrays(event) {
     const polygon = this;
     const vertices = polygon.getPath();
 
+    console.log("inside showArray");
+
+    console.log("inside if");
+    const infoWindow = new google.maps.InfoWindow();
+=======
     console.log("inside showArray");
 
     console.log("inside if");
@@ -314,4 +330,77 @@ function showArrays(event) {
     console.log("updated j is: ", j);
 
 }
+*/
+
+function generateUserPath() {
+     poly = new google.maps.Polyline({
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 3,
+    });
+    poly.setMap(map);
+
+
+    listen=true;
+    // Add a listener for the click event
+    map.addListener("click", addLatLng);
+
+}
+
+
+function stopListening() {
+    //map.removeListener();
+    listen = false;
+
+
+}
+
+function cancelBoundary()
+{
+   newPolygon.setMap(null);
+    //poly.setMap(null);
+    //newPolygon=null;
+   // poly=null;
+}
+
+function addLatLng(event) {
+    if (listen) {
+         path = poly.getPath();
+
+        // Because path is an MVCArray, we can simply append a new coordinate
+        // and it will automatically appear.
+        path.push(event.latLng);
+        // Add a new marker at the new plotted point on the polyline.
+       /* new google.maps.Marker({
+            position: event.latLng,
+            title: "#" + path.getLength(),
+            map: map,
+
+            icon: {
+                url: 'images/dot.png',
+                scaledSize: new google.maps.Size(35, 25),
+            }
+        });
+        */
+
+        
+         newPolygon=new google.maps.Polygon({
+            paths: path,
+            strokeColor: RMF[i][1][0].color,
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: RMF[i][1][0].color,
+            fillOpacity: 0.35,
+            map: map
+        });
+        
+
+    }
+    else {
+        event.stop();
+    }
+
+}
+
+
 
