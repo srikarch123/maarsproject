@@ -88,121 +88,121 @@ const RMF = [[[
     { lat: 40.850902, lng: -96.469476 },],
 [{ color: 'violet' }, { lat: 40.852134, lng: -96.468769 }],],
 
-    [[
- 
-        { lat: 40.850749, lng: -96.469421 },
-        { lat: 40.850860, lng: -96.468012 },
-        { lat: 40.850880, lng: -96.467721 },
-        { lat: 40.850896, lng: -96.467536 },
-        { lat: 40.850904, lng: -96.467239 },
-        { lat: 40.850906, lng: -96.467175 },
-        { lat: 40.850907, lng: -96.466984 },
-        { lat: 40.850934, lng: -96.466758 },
-        { lat: 40.850967, lng: -96.466537 },
-        { lat: 40.850865, lng: -96.466528 },
-        { lat: 40.850781, lng: -96.466543 },
-        { lat: 40.850694, lng: -96.466567 },
-        { lat: 40.850583, lng: -96.466613 },
-        { lat: 40.850521, lng: -96.466652 },
-        { lat: 40.850425, lng: -96.466718 },
-        { lat: 40.850302, lng: -96.466819 },
-        { lat: 40.850182, lng: -96.466925 },
-        { lat: 40.850080, lng: -96.467017 },
-        { lat: 40.849971, lng: -96.467096 },
-        { lat: 40.849903, lng: -96.467131 },
-        { lat: 40.849826, lng: -96.467151 },
-        { lat: 40.849741, lng: -96.467151 },
-        { lat: 40.849680, lng: -96.467134 },
-        { lat: 40.849607, lng: -96.467099 },
-        { lat: 40.849545, lng: -96.467057 },
-        { lat: 40.849468, lng: -96.466993 },
-        { lat: 40.849340, lng: -96.466878 },
-        { lat: 40.849278, lng: -96.466830 },
-        { lat: 40.849230, lng: -96.466809 },
-        { lat: 40.849174, lng: -96.466798 },
-        { lat: 40.849112, lng: -96.466804 },
-        { lat: 40.849058, lng: -96.466826 },
-        { lat: 40.848996, lng: -96.466868 },
-        { lat: 40.848929, lng: -96.466935 },
-        { lat: 40.848899, lng: -96.466971 },
-        { lat: 40.848788, lng: -96.467146 },
-        { lat: 40.848687, lng: -96.467328 },
-        { lat: 40.848578, lng: -96.467566 },
-        { lat: 40.848332, lng: -96.468326 },
-        { lat: 40.848278, lng: -96.468768 },
-        { lat: 40.848253, lng: -96.469012 },
-        { lat: 40.848214, lng: -96.469164 },
-        { lat: 40.848178, lng: -96.469236 },
-        { lat: 40.848113, lng: -96.469322 },
-        { lat: 40.848168, lng: -96.469420 },
-        { lat: 40.848607, lng: -96.469061 },
-        { lat: 40.848850, lng: -96.468916 },
-        { lat: 40.849200, lng: -96.468825 },
-        { lat: 40.849735, lng: -96.468827 },
-        { lat: 40.849958, lng: -96.468883 },
-        { lat: 40.850169, lng: -96.468982 },
-        { lat: 40.850319, lng: -96.469089 },
-        { lat: 40.850503, lng: -96.469250 },
-        { lat: 40.850643, lng: -96.469371 },
-        { lat: 40.850697, lng: -96.469420 },
-        { lat: 40.850733, lng: -96.469425 },],
-        [{ color: 'blue' }, { lat:40.849769, lng:-96.468096 } ]],
 
-
-    
 [[
-    {lat:	40.856288,lng: -96.466271	},
-    {lat:	40.855850,lng: -96.466335	},
-    {lat:	40.855436,lng: -96.466356	},
-    {lat:	40.855241,lng: -96.466303	},
-    {lat:	40.855047,lng: -96.466185	},
-    {lat:	40.854682,lng: -96.466045	},
-    {lat:	40.854272,lng: -96.465911	},
-    {lat:	40.853663,lng: -96.465799	},
-    {lat:	40.853476,lng: -96.465784	},
-    {lat:	40.853363,lng: -96.465790	},
-    {lat:	40.853274,lng: -96.466616	},
-    {lat:	40.853255,lng: -96.467621	},
-    {lat:	40.853236,lng: -96.468012	},
-    {lat:	40.853208,lng: -96.468130	},
-    {lat:	40.853147,lng: -96.468216	},
-    {lat:	40.853025,lng: -96.468266	},
-    {lat:	40.852856,lng: -96.468279	},
-    {lat:	40.852668,lng: -96.468204	},
-    {lat:	40.852462,lng: -96.468043	},
-    {lat:	40.852279,lng: -96.467863	},
-    {lat:	40.852082,lng: -96.467695	},
-    {lat:	40.851838,lng: -96.467559	},
-    {lat:	40.851608,lng: -96.467435	},
-    {lat:	40.851394,lng: -96.467295	},
-    {lat:	40.851261,lng: -96.467180	},
-    {lat:	40.851158,lng: -96.467037	},
-    {lat:	40.851158,lng: -96.466929	},
-    {lat:	40.851199,lng: -96.466623	},
-    {lat:	40.851189,lng: -96.466453	},
-    {lat:	40.851102,lng: -96.466297	},
-    {lat:	40.850912,lng: -96.466263	},
-    {lat:	40.850737,lng: -96.466290	},
-    {lat:	40.850568,lng: -96.466365	},
-    {lat:	40.850378,lng: -96.466487	},
-    {lat:	40.850280,lng: -96.466555	},
-    {lat:	40.850126,lng: -96.466698	},
-    {lat:	40.850023,lng: -96.466800	},
-    {lat:	40.849884,lng: -96.466861	},
-    {lat:	40.849870,lng: -96.466853	},
-    {lat:	40.849681,lng: -96.466853	},
-    {lat:	40.849515,lng: -96.466753	},
-    {lat:	40.849379,lng: -96.466653	},
-    {lat:	40.849447,lng: -96.466463	},
-    {lat:	40.849530,lng: -96.466294	},
-    {lat:	40.849659,lng: -96.466014	},
-    {lat:	40.849870,lng: -96.465694	},
-    {lat:	40.850097,lng: -96.465394	},
-    {lat:	40.850173,lng: -96.465334	},
-    {lat:	40.856295,lng: -96.465294	},
-    {lat:	40.856318,lng: -96.465724	},
-    {lat:	40.856303,lng: -96.466214	},],
-    [{ color: 'yellow' },{lat:	40.85172047209272,lng: -96.4660498175412 }]],
+
+    { lat: 40.850749, lng: -96.469421 },
+    { lat: 40.850860, lng: -96.468012 },
+    { lat: 40.850880, lng: -96.467721 },
+    { lat: 40.850896, lng: -96.467536 },
+    { lat: 40.850904, lng: -96.467239 },
+    { lat: 40.850906, lng: -96.467175 },
+    { lat: 40.850907, lng: -96.466984 },
+    { lat: 40.850934, lng: -96.466758 },
+    { lat: 40.850967, lng: -96.466537 },
+    { lat: 40.850865, lng: -96.466528 },
+    { lat: 40.850781, lng: -96.466543 },
+    { lat: 40.850694, lng: -96.466567 },
+    { lat: 40.850583, lng: -96.466613 },
+    { lat: 40.850521, lng: -96.466652 },
+    { lat: 40.850425, lng: -96.466718 },
+    { lat: 40.850302, lng: -96.466819 },
+    { lat: 40.850182, lng: -96.466925 },
+    { lat: 40.850080, lng: -96.467017 },
+    { lat: 40.849971, lng: -96.467096 },
+    { lat: 40.849903, lng: -96.467131 },
+    { lat: 40.849826, lng: -96.467151 },
+    { lat: 40.849741, lng: -96.467151 },
+    { lat: 40.849680, lng: -96.467134 },
+    { lat: 40.849607, lng: -96.467099 },
+    { lat: 40.849545, lng: -96.467057 },
+    { lat: 40.849468, lng: -96.466993 },
+    { lat: 40.849340, lng: -96.466878 },
+    { lat: 40.849278, lng: -96.466830 },
+    { lat: 40.849230, lng: -96.466809 },
+    { lat: 40.849174, lng: -96.466798 },
+    { lat: 40.849112, lng: -96.466804 },
+    { lat: 40.849058, lng: -96.466826 },
+    { lat: 40.848996, lng: -96.466868 },
+    { lat: 40.848929, lng: -96.466935 },
+    { lat: 40.848899, lng: -96.466971 },
+    { lat: 40.848788, lng: -96.467146 },
+    { lat: 40.848687, lng: -96.467328 },
+    { lat: 40.848578, lng: -96.467566 },
+    { lat: 40.848332, lng: -96.468326 },
+    { lat: 40.848278, lng: -96.468768 },
+    { lat: 40.848253, lng: -96.469012 },
+    { lat: 40.848214, lng: -96.469164 },
+    { lat: 40.848178, lng: -96.469236 },
+    { lat: 40.848113, lng: -96.469322 },
+    { lat: 40.848168, lng: -96.469420 },
+    { lat: 40.848607, lng: -96.469061 },
+    { lat: 40.848850, lng: -96.468916 },
+    { lat: 40.849200, lng: -96.468825 },
+    { lat: 40.849735, lng: -96.468827 },
+    { lat: 40.849958, lng: -96.468883 },
+    { lat: 40.850169, lng: -96.468982 },
+    { lat: 40.850319, lng: -96.469089 },
+    { lat: 40.850503, lng: -96.469250 },
+    { lat: 40.850643, lng: -96.469371 },
+    { lat: 40.850697, lng: -96.469420 },
+    { lat: 40.850733, lng: -96.469425 },],
+[{ color: 'blue' }, { lat: 40.849769, lng: -96.468096 }]],
+
+
+[[
+    { lat: 40.856288, lng: -96.466271 },
+    { lat: 40.855850, lng: -96.466335 },
+    { lat: 40.855436, lng: -96.466356 },
+    { lat: 40.855241, lng: -96.466303 },
+    { lat: 40.855047, lng: -96.466185 },
+    { lat: 40.854682, lng: -96.466045 },
+    { lat: 40.854272, lng: -96.465911 },
+    { lat: 40.853663, lng: -96.465799 },
+    { lat: 40.853476, lng: -96.465784 },
+    { lat: 40.853363, lng: -96.465790 },
+    { lat: 40.853274, lng: -96.466616 },
+    { lat: 40.853255, lng: -96.467621 },
+    { lat: 40.853236, lng: -96.468012 },
+    { lat: 40.853208, lng: -96.468130 },
+    { lat: 40.853147, lng: -96.468216 },
+    { lat: 40.853025, lng: -96.468266 },
+    { lat: 40.852856, lng: -96.468279 },
+    { lat: 40.852668, lng: -96.468204 },
+    { lat: 40.852462, lng: -96.468043 },
+    { lat: 40.852279, lng: -96.467863 },
+    { lat: 40.852082, lng: -96.467695 },
+    { lat: 40.851838, lng: -96.467559 },
+    { lat: 40.851608, lng: -96.467435 },
+    { lat: 40.851394, lng: -96.467295 },
+    { lat: 40.851261, lng: -96.467180 },
+    { lat: 40.851158, lng: -96.467037 },
+    { lat: 40.851158, lng: -96.466929 },
+    { lat: 40.851199, lng: -96.466623 },
+    { lat: 40.851189, lng: -96.466453 },
+    { lat: 40.851102, lng: -96.466297 },
+    { lat: 40.850912, lng: -96.466263 },
+    { lat: 40.850737, lng: -96.466290 },
+    { lat: 40.850568, lng: -96.466365 },
+    { lat: 40.850378, lng: -96.466487 },
+    { lat: 40.850280, lng: -96.466555 },
+    { lat: 40.850126, lng: -96.466698 },
+    { lat: 40.850023, lng: -96.466800 },
+    { lat: 40.849884, lng: -96.466861 },
+    { lat: 40.849870, lng: -96.466853 },
+    { lat: 40.849681, lng: -96.466853 },
+    { lat: 40.849515, lng: -96.466753 },
+    { lat: 40.849379, lng: -96.466653 },
+    { lat: 40.849447, lng: -96.466463 },
+    { lat: 40.849530, lng: -96.466294 },
+    { lat: 40.849659, lng: -96.466014 },
+    { lat: 40.849870, lng: -96.465694 },
+    { lat: 40.850097, lng: -96.465394 },
+    { lat: 40.850173, lng: -96.465334 },
+    { lat: 40.856295, lng: -96.465294 },
+    { lat: 40.856318, lng: -96.465724 },
+    { lat: 40.856303, lng: -96.466214 },],
+[{ color: 'yellow' }, { lat: 40.85172047209272, lng: -96.4660498175412 }]],
 
 
 
@@ -211,6 +211,10 @@ const RMF = [[[
 
 //const infoWindow =[];
 let j = 0;
+
+const verticalOffset = 0.0001;
+const zIndexBase = 10;
+let clickInfoWindow = null;
 
 function fieldboundary() {
     let poly = [];
@@ -223,12 +227,75 @@ function fieldboundary() {
             strokeOpacity: 0.8,
             strokeWeight: 2,
             fillColor: RMF[i][1][0].color,
-            fillOpacity: 0.35,
+            fillOpacity: 0.1,
             map: map
         });
         j = 0;
-        //listen = true;
-        poly[i].addListener("click", showArrays);
+
+        const infoWindowContent = "Field-" + (i + 1) + "</br>BSE | Roger Memorial Farm";
+
+        // Create an InfoWindow for the polygon
+        const infoWindow = new google.maps.InfoWindow({
+            content: infoWindowContent
+        });
+
+        // Use closure to associate the InfoWindow with the polygon
+        poly[i].addListener("mouseover", (event) => {
+            const position = event.latLng;
+            const newLatLng = new google.maps.LatLng(position.lat() + verticalOffset, position.lng());
+
+            infoWindow.setContent(infoWindowContent);
+            infoWindow.setPosition(newLatLng);
+            infoWindow.open(map);
+        });
+
+        poly[i].addListener("mousemove", (event) => {
+            const position = event.latLng;
+            const newLatLng = new google.maps.LatLng(position.lat() + verticalOffset, position.lng());
+
+            infoWindow.setPosition(newLatLng);
+        });
+
+        poly[i].addListener("mouseout", () => {
+            infoWindow.close();
+        });
+
+        poly[i].addListener("click", (event) => {
+            if (clickInfoWindow) {
+                // Close the previous click InfoWindow if it exists
+                clickInfoWindow.close();
+            }
+
+            const position = event.latLng;
+            const newLatLng = new google.maps.LatLng(position.lat() + verticalOffset, position.lng());
+
+            let contentString =
+                "<b>A Small Field </b><br><br>" +
+                "Location: " +
+                event.latLng.lat() +
+                "," +
+                event.latLng.lng() +
+                "<br>" + "AREA: <br>SOIL: <br>CROP: ";
+
+            clickInfoWindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            clickInfoWindow.setPosition(event.latLng);
+            clickInfoWindow.open(map);
+
+            // Increase the zIndex for the click InfoWindow to make it appear above mouseover InfoWindows
+            clickInfoWindow.setZIndex(zIndexBase + RMF.length);
+        })
+    }
+}
+
+/*
+
+function showArrays(event) {
+    const polygon = this;
+    const vertices = polygon.getPath();
+
 
     }
 }
@@ -237,6 +304,11 @@ function showArrays(event) {
     const polygon = this;
     const vertices = polygon.getPath();
 
+    console.log("inside showArray");
+
+    console.log("inside if");
+    const infoWindow = new google.maps.InfoWindow();
+=======
     console.log("inside showArray");
 
     console.log("inside if");
@@ -258,6 +330,7 @@ function showArrays(event) {
     console.log("updated j is: ", j);
 
 }
+*/
 
 function generateUserPath() {
      poly = new google.maps.Polyline({
@@ -274,9 +347,11 @@ function generateUserPath() {
 
 }
 
+
 function stopListening() {
     //map.removeListener();
     listen = false;
+
 
 }
 
@@ -326,5 +401,6 @@ function addLatLng(event) {
     }
 
 }
+
 
 
