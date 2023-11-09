@@ -216,8 +216,14 @@ body{
 }
 
 .field_boundaries ul li .content{
-    font-size: calc(0.7vh + 1vw);
+    font-size: calc(0.5vh + 1vw);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
 }
+
 
 .left_side .machinary_box{
     height: 100%;
