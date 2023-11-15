@@ -1,3 +1,5 @@
+
+
 let map, marker, markerA, markerB;
 let marker_region = [];
 let points = [];
@@ -53,25 +55,32 @@ async function initMap() {
     });
 
     const spl_contentString =
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        "</div>" +
-        '<h1 id="firstHeading" class="firstHeading">Splinter Laboratory</br></h1>' +
-        '<div id="bodyContent">' +
-        "<p><b>2000N 35th St</b></br>East Campus, UNL</p>" +
-        '<p>Lincoln, NE </p>' +
-        "</div>" +
+        '<div class="info_container">'+
+        '<div class="content_info">' +
+            '<h1 id="firstHeading" class="firstHeading">Splinter Laboratory</br></h1>' +
+            '<div id="bodyContent">' +
+                "<p></br><b>2000N 35th St</b></br>East Campus, UNL</p>" +
+                '<p></br>Lincoln, NE </p>' +
+                '<a href="https://cehs.unl.edu/tmfd/facilities/splinter-laboratory/">visit Splinter Lab</a>'+
+            "</div>" +
+        "</div>"+
+        '<div class="images">'+
+            '<img src="images/splinter-1.jpg"/>'+
+        "</div>"+
         "</div>";
-
     const chase_contentString =
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        "</div>" +
-        '<h1 id="firstHeading" class="firstHeading">Chase Hall</br></h1>' +
-        '<div id="bodyContent">' +
-        "<p><b>3605 Fair St</b></br>East Campus, UNL</p>" +
-        '<p>Lincoln, NE </p>' +
-        "</div>" +
+        '<div class="info_container">'+
+        '<div class="content_info">' +
+            '<h1 id="firstHeading" class="firstHeading">Chase Hall</br></h1>' +
+            '<div id="bodyContent">' +
+                "<p></br><b>3605 Fair St</b></br>East Campus, UNL</p>" +
+                '<p></br>Lincoln, NE </p>' +
+                '<a href="https://bse.unl.edu/contact-us">visit Chase Hall</a>'+
+            "</div>" +
+        "</div>"+
+        '<div class="images">'+
+            '<img src="images/Chase-1.jpeg"/>'+
+        "</div>"+
         "</div>";
 
     const spl_infowindow = new google.maps.InfoWindow({
