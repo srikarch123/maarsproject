@@ -76,3 +76,8 @@ function machine_right(){
     const right_side = document.getElementById("right_side");
     right_side.style.width = "40%";
 }
+
+function show_hamburger(){
+    const mainMenu = document.querySelector(".mainMenu");
+    mainMenu.style.visibility = (mainMenu.style.visibility === "visible") ? "hidden" : "visible";
+}

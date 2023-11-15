@@ -83,6 +83,7 @@ body{
     position: relative;
     display: flex;
     justify-content: center;
+    z-index: 15;
     background-color: rgb(148, 132, 110);
 }
 
@@ -126,6 +127,44 @@ body{
     border-bottom: 2px solid black; 
 }
 
+.nav_options .ham_burger{
+    height: calc(3.5vh);
+    width: calc(2vw);
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    background: url('../images/ham_burger.png') center center / cover no-repeat;       
+}
+
+.mainMenu{
+    position: absolute;
+    height: 175px;
+    width: 200px;
+    top: 20%;
+    right: 0%;
+    visibility: hidden;
+    transition: height 0.3s;
+    z-index: 15;
+    background-color: rgb(148, 132, 110);
+
+}
+
+.mainMenu li{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    /*background-color: bisque;*/
+}
+
+.mainMenu li:hover{
+    background-color: rgb(225, 199, 166);
+}
+
 
 .main{
     height: 80%;
@@ -146,6 +185,13 @@ body{
     z-index: 10;
     background-color: green;
 
+}
+
+.main .map .heatmap_div{
+    height: 30px;
+    width: 90px;
+    z-index: 200;
+    background-color: black;
 }
 
 .hidden {
@@ -224,6 +270,21 @@ body{
     gap: 5px;
 }
 
+
+.field_boundaries ul li .deleteList{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%);
+}
+
+.field_boundaries ul li .deleteList img{
+    max-width: calc(3vw);
+}
+
+.field_boundaries ul li .icon{
+    max-width: 30px;
+}
 
 .left_side .machinary_box{
     height: 100%;
