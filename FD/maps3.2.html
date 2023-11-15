@@ -5,13 +5,16 @@
     <title>Maps</title>
     <link rel="stylesheet" href="CSS/maps.css">
     <link rel="stylesheet" href="CSS/right_side.css">
+    <link rel="stylesheet" href="CSS/infowindow.css">
+    <link rel="stylesheet" href="./ fontawesome-free-5.13.0-web/css/all.css">
+
 </head>
 
 <body>
     <div class="maps_container">
         <div class="side_nav">
             <div class="side_nav_container">
-                <div class="logo"> <img src="images/earthlogo.png"> </div>
+                <div class="logo"> <a href="index.html"><img src="images/earthlogo.png"> </a></div>
                 <p> FARM DIGITIZATION</p>
             </div>
             <div class="nav_options">
@@ -26,94 +29,114 @@
                         <p>Analytics</p>
                     </li>
                 </ul>
+
+                <div class="ham_burger" onclick="show_hamburger()"><i class="fa fa-bars"></i> </div>
+
             </div>
+            <ul class="mainMenu">
+                <li onclick="heatmap1()">Heat Map</li>
+                <li>Weather Layer</li>
+                <li>Soil Layer</li>
+                <div class="closeMenu"><i class="fa fa-time"></i> </div>
+            </ul>
         </div>
+
 
         <div class="main">
             <div class="left_side" id="left_side">
-                <div class="close" onclick="close_left()"><img src="images/close.png"/> </div>
+                <div class="close" onclick="close_left()"><img src="images/close.png" /> </div>
 
                 <div class="field_boundaries">
                     <h2>Field Boundaries</h2>
-                    <ul>
+                    <ul id="fieldList">
                         <li onclick="get_region(RMF[0][1][1])"><img src="images/RMF-1.png" />
                             <div class="content">
-                                <h4>Filed-1</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-1</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: 2.6 ac</p>
                             </div>
                         </li>
                         <li onclick="get_region(RMF[1][1][1])"><img src="images/RMF-2.png" />
                             <div class="content">
-                                <h4>Filed-2</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-2</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: 2.6 ac</p>
                             </div>
                         </li>
                         <li onclick="get_region(RMF[2][1][1])"><img src="images/RMF-3.png" />
                             <div class="content">
-                                <h4>Filed-3</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-3</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: 4.0 ac</p>
                             </div>
                         </li>
                         <li onclick="get_region(RMF[3][1][1])"><img src="images/RMF-4.png" />
                             <div class="content">
-                                <h4>Filed-4</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-4</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: ac</p>
                             </div>
                         </li>
                         <li onclick="get_region(RMF[4][1][1])"><img src="images/RMF-5.png" />
                             <div class="content">
-                                <h4>Filed-5</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-5</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: ac</p>
                             </div>
                         </li>
                         <li onclick="get_region(RMF[5][1][1])"><img src="#" />
                             <div class="content">
-                                <h4>Filed-6</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-6</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: ac</p>
                             </div>
                         </li>
                         <li><img src="#" />
                             <div class="content">
-                                <h4>Filed-7</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-7</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: ac</p>
                             </div>
                         </li>
                         <li><img src="#" />
                             <div class="content">
-                                <h4>Filed-8</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-8</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: ac</p>
                             </div>
                         </li>
                         <li><img src="#" />
                             <div class="content">
-                                <h4>Filed-9</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-9</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: ac</p>
                             </div>
                         </li>
                         <li><img src="#" />
                             <div class="content">
-                                <h4>Filed-10</h4>
-                                <p> BSE | Rogers Memorial Farm<p>
+                                <h4>Field-10</h4>
+                                <p> BSE | Rogers Memorial Farm
+                                <p>
                                 <p>Area: ac</p>
                             </div>
                         </li>
-                        <li onclick="generateUserPath()">
-                            <div class="content">
+                        <li>
+                            <div class="content" onclick="generateUserPath()">
                                 <h4>CREATE BOUNDARY</h4>
                             </div>
-                            <img class="icon" src="images/tick.png" onclick="stopListening()"> 
-                            <img class="icon"src="images/cross.png" onclick="cancelBoundary()">
+                            <img class="icon" src="images/tick.png" onclick="stopListening()">
+                            <img class="icon" src="images/cross.png" onclick="cancelBoundary()">
                         </li>
-                       
+
                     </ul>
                 </div>
 
@@ -195,7 +218,7 @@
             <div class="map" id="map"></div>
 
             <div class="right_side" id="right_side">
-                <div class="close" onclick="close_right()"><img src="images/close.png"/> </div>
+                <div class="close" onclick="close_right()"><img src="images/close.png" /> </div>
                 <div class="machine_right">
                     <div class="title_data">
                         <img src="images/tractor.png" />
@@ -214,22 +237,29 @@
                         <button>Places</button>
                     </div>
                     <div class="utilization">
-                        
+
                     </div>
                 </div>
             </div>
 
 
         </div>
-
+        <script src="JS/heatMap.js"></script>
         <script src="JS/boundaries.js"></script>
         <script src="JS/Machinery/machinery.js"></script>
         <script src="JS/map_functions.js"></script>
         <script src="JS/pathGeneration.js"></script>
         <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&libraries=visualization&callback=initMap"
             async defer></script>
+        <!-- <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap">
+            </script> -->
         <script src="JS/Machinery/toggle.js"> </script>
+
+        <script>
+
+        </script>
 
     </div>
 </body>
