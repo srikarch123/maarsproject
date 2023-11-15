@@ -1,6 +1,7 @@
 let path;
 let newPolygon;
 let listen = false;
+let poly = null;
 const RMF = [[[
     { lat: 40.846771, lng: -96.467208 },
     { lat: 40.846946, lng: -96.465921 },
@@ -290,110 +291,43 @@ function fieldboundary() {
     }
 }
 
-/*
-
-function showArrays(event) {
-    const polygon = this;
-    const vertices = polygon.getPath();
-
-
-    }
-}
-
-function showArrays(event) {
-    const polygon = this;
-    const vertices = polygon.getPath();
-
-    console.log("inside showArray");
-
-    console.log("inside if");
-    const infoWindow = new google.maps.InfoWindow();
-=======
-    console.log("inside showArray");
-
-    console.log("inside if");
-    const infoWindow = new google.maps.InfoWindow();
-
-
-    let contentString =
-        "<b>A Small Field </b><br><br>" +
-        "Location: " +
-        event.latLng.lat() +
-        "," +
-        event.latLng.lng() +
-        "<br>" + "AREA: <br>SOIL: <br>CROP: ";
-    infoWindow.setContent(contentString);
-    infoWindow.setPosition(event.latLng);
-    infoWindow.open(map);
-    //infoWindow.close(map);
-
-    console.log("updated j is: ", j);
-
-}
-*/
 
 function generateUserPath() {
-     poly = new google.maps.Polyline({
+    poly = new google.maps.Polyline({
         strokeColor: "#FF0000",
         strokeOpacity: 1.0,
         strokeWeight: 3,
+        map: map,
     });
-    poly.setMap(map);
-
-
-    listen=true;
-    // Add a listener for the click event
+    listen = true;
     map.addListener("click", addLatLng);
-
 }
 
 
 function stopListening() {
-    //map.removeListener();
-    listen = false;
+    if (poly != null) {
+        const confirmDialog = confirm(`Do you want to confirm the boundary ?`);
+        if (confirmDialog) {
+            listen = false;
+            list_create();
+        }
+        else { cancelBoundary(); }
+    }
+    else{
+        const boundary_alert = alert(`No Boundary made !!!`);
+    }
 
 
 }
 
-function cancelBoundary()
-{
-   newPolygon.setMap(null);
-    //poly.setMap(null);
-    //newPolygon=null;
-   // poly=null;
+function cancelBoundary() {
+    poly.setMap(null);
 }
 
 function addLatLng(event) {
     if (listen) {
-         path = poly.getPath();
-
-        // Because path is an MVCArray, we can simply append a new coordinate
-        // and it will automatically appear.
+        path = poly.getPath();
         path.push(event.latLng);
-        // Add a new marker at the new plotted point on the polyline.
-       /* new google.maps.Marker({
-            position: event.latLng,
-            title: "#" + path.getLength(),
-            map: map,
-
-            icon: {
-                url: 'images/dot.png',
-                scaledSize: new google.maps.Size(35, 25),
-            }
-        });
-        */
-
-        
-         newPolygon=new google.maps.Polygon({
-            paths: path,
-            strokeColor: RMF[i][1][0].color,
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: RMF[i][1][0].color,
-            fillOpacity: 0.35,
-            map: map
-        });
-        
 
     }
     else {
@@ -402,5 +336,51 @@ function addLatLng(event) {
 
 }
 
+
+function list_create() {
+
+    var newListItem = document.createElement('li');
+    //Create image 
+    var imgElement = document.createElement('img');
+    imgElement.src = '#';
+    newListItem.appendChild(imgElement);
+    // Create content div
+    var contentDiv = document.createElement('div');
+    contentDiv.className = 'content';
+
+    // Create and append h4 element
+    var h4Element = document.createElement('h4');
+    var h4Text = document.createTextNode('New Field');
+    h4Element.appendChild(h4Text);
+    contentDiv.appendChild(h4Element);
+
+    // Create and append paragraph elements
+    var paragraph1 = document.createElement('p');
+    var paragraph1Text = document.createTextNode('BSE | Roger Memorial Farm');
+    paragraph1.appendChild(paragraph1Text);
+    contentDiv.appendChild(paragraph1);
+
+    var paragraph2 = document.createElement('p');
+    var paragraph2Text = document.createTextNode('Area: ac');
+    paragraph2.appendChild(paragraph2Text);
+    contentDiv.appendChild(paragraph2);
+
+    // Append the content div to the new list item
+    newListItem.appendChild(contentDiv);
+/*
+    var deleteList = document.createElement('div');
+    deleteDiv.className = 'deleteList';
+    var img = document.createElement('img');
+    img.src = '#';
+    deleteList.appendChild(img);
+
+    newListItem.appendChild(deleteList);
+*/
+    var existingList = document.getElementById('fieldList');
+    var lastButOneElement = existingList.children[existingList.children.length - 1];
+    existingList.insertBefore(newListItem, lastButOneElement);
+
+
+}
 
 
