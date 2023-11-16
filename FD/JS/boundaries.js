@@ -1,7 +1,10 @@
 let path;
 let newPolygon;
-let listen = false;
+let listen = true;
 let poly = null;
+var drawingManager;
+var userDefinedPolygon;
+var polygonListener;
 const RMF = [[[
     { lat: 40.846771, lng: -96.467208 },
     { lat: 40.846946, lng: -96.465921 },
@@ -231,6 +234,7 @@ function fieldboundary() {
             fillOpacity: 0.1,
             map: map
         });
+
         j = 0;
 
         const infoWindowContent = "Field-" + (i + 1) + "</br>BSE | Roger Memorial Farm";
@@ -292,7 +296,33 @@ function fieldboundary() {
 }
 
 
-function generateUserPath() {
+function generateUserBoundary() {
+    // Create a drawing manager to enable polygon drawing
+    if(polygonListener==null)
+    {
+    drawingManager = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.POLYGON,
+        drawingControl: true,
+        drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: [google.maps.drawing.OverlayType.POLYGON]
+        },
+        polygonOptions: {
+            editable: true,
+            //draggable: true
+        }
+    });
+
+    drawingManager.setMap(map);
+
+    polygonListener = google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
+        userDefinedPolygon = polygon;
+        // Get polygon coordinates
+        // var polygonCoords = polygon.getPath().getArray();
+        // console.log('User-Defined Polygon Coordinates:', polygonCoords);
+    });
+
+    /*
     poly = new google.maps.Polyline({
         strokeColor: "#FF0000",
         strokeOpacity: 1.0,
@@ -301,43 +331,63 @@ function generateUserPath() {
     });
     listen = true;
     map.addListener("click", addLatLng);
+    */
+}
 }
 
-
 function stopListening() {
-    if (poly != null) {
+
+
+    if (userDefinedPolygon != null) {
+
         const confirmDialog = confirm(`Do you want to confirm the boundary ?`);
         if (confirmDialog) {
             listen = false;
-            list_create();
+            var areaInSquareMeters = google.maps.geometry.spherical.computeArea(userDefinedPolygon.getPath());
+            var areaInAcres = areaInSquareMeters / 4046.86;
+            areaInAcres = areaInAcres.toFixed(2);
+            console.log('Polygon Area: ' + areaInAcres + ' acres');
+            list_create(areaInAcres);
+            userDefinedPolygon.setEditable(false);
+            userDefinedPolygon = null;
+            //drawingManager.setDrawingMode(null);
+            google.maps.event.removeListener(polygonListener);
         }
         else { cancelBoundary(); }
     }
-    else{
+    else {
         const boundary_alert = alert(`No Boundary made !!!`);
     }
-
-
+    polygonListener=null;
 }
-
 function cancelBoundary() {
-    poly.setMap(null);
-}
-
-function addLatLng(event) {
-    if (listen) {
-        path = poly.getPath();
-        path.push(event.latLng);
-
+    if (userDefinedPolygon) {
+        userDefinedPolygon.setMap(null);
+        userDefinedPolygon = null;
+        //drawingManager.setDrawingMode(null);
+        google.maps.event.removeListener(polygonListener);
     }
     else {
-        event.stop();
+        alert(`No Boundary to delete !!!`);
     }
+    polygonListener=null;
 
 }
 
+// function addLatLng(event) {
+//     if (listen) {
+//         path = poly.getPath();
+//         path.push(event.latLng);
 
-function list_create() {
+//     }
+//     else {
+//         event.stop();
+//     }
+
+// }
+
+
+function list_create(areaInAcre) {
 
     var newListItem = document.createElement('li');
     //Create image 
@@ -361,26 +411,26 @@ function list_create() {
     contentDiv.appendChild(paragraph1);
 
     var paragraph2 = document.createElement('p');
-    var paragraph2Text = document.createTextNode('Area: ac');
-    paragraph2.appendChild(paragraph2Text);
+    //var paragraph2Text = document.getElementById('p');
+    paragraph2.innerHTML = 'Area: ' + areaInAcre + ' acres';
+
+    //paragraph2.appendChild(paragraph2Text);
     contentDiv.appendChild(paragraph2);
 
     // Append the content div to the new list item
     newListItem.appendChild(contentDiv);
-/*
-    var deleteList = document.createElement('div');
-    deleteDiv.className = 'deleteList';
-    var img = document.createElement('img');
-    img.src = '#';
-    deleteList.appendChild(img);
-
-    newListItem.appendChild(deleteList);
-*/
+    /*
+        var deleteList = document.createElement('div');
+        deleteDiv.className = 'deleteList';
+        var img = document.createElement('img');
+        img.src = '#';
+        deleteList.appendChild(img);
+    
+        newListItem.appendChild(deleteList);
+    */
     var existingList = document.getElementById('fieldList');
     var lastButOneElement = existingList.children[existingList.children.length - 1];
     existingList.insertBefore(newListItem, lastButOneElement);
-
-
 }
-
+google.maps.event.addDomListener(window, 'load', initMap);
 

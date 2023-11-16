@@ -1,10 +1,11 @@
 
+let clickListener1;
 
 function select_points() {
 
     //document.getElementById(map).style.cursor = pointer;
-
-    clickListener1 = map.addListener('click', function (event) {
+    if(clickListener1==null)
+    {    clickListener1 = map.addListener('click', function (event) {
         const clickedLocation = event.latLng;
         var latitude = clickedLocation.lat();
         var longitude = clickedLocation.lng();
@@ -44,6 +45,8 @@ function select_points() {
 
 
     });
+
+}
 
 
 
@@ -106,6 +109,7 @@ function reset_points() {
     coordinatesLabel2.value = ''; // Clears the content of the label
     markerB.setMap(null);
     markerB = null;
+    clickListener1=null;
 
 }
 
