@@ -2,24 +2,22 @@ let path;
 let newPolygon;
 let listen = true;
 let poly = null;
+let createPoly = [];
 var drawingManager;
 var userDefinedPolygon;
 var polygonListener;
-let createPoly = [];
 
-const firebaseApp = firebase.initializeApp({
+const firebaseApp = firebase.initializeApp({ 
     apiKey: "AIzaSyBtCXwZ8rGVnHpMNS0_t7Pyu29huihy0U8",
     authDomain: "maars-a5622.firebaseapp.com",
     projectId: "maars-a5622",
-    databaseURL: "https://maars-a5622-default-rtdb.firebaseio.com/",
+    databaseURL:"https://maars-a5622-default-rtdb.firebaseio.com/",
     storageBucket: "maars-a5622.appspot.com",
     messagingSenderId: "632830127984",
     appId: "1:632830127984:web:c08ca7355fe94b10b029b5",
 });
 
-// const db = firebaseApp.firestore();
-// const auth = firebaseApp.auth();
-/*
+
 const RMF = [[[
     { lat: 40.846771, lng: -96.467208 },
     { lat: 40.846946, lng: -96.465921 },
@@ -227,7 +225,7 @@ const RMF = [[[
 
 ];
 
-*/
+
 //const infoWindow =[];
 let j = 0;
 
@@ -235,46 +233,51 @@ const verticalOffset = 0.0001;
 const zIndexBase = 10;
 let clickInfoWindow = null;
 
-function fieldboundary() {
 
-    var firebaseRef = firebase.database().ref("Boundaries2");
-    //console.log(firebaseRef);
-    console.log("HI");
-    firebaseRef.on('value', gotData, errData);
 
-    // for (let i = 0; i < RMF.length; i++) {
-    //     console.log("RMF[0][0] is: ", RMF[0][0][0].color);
-       
-    // }
+// const db = firebaseApp.firestore();
+// const auth = firebaseApp.auth();
+
+
+function gotData(data)
+{
+var temp=data.val();
+var keys=Object.keys(data.val());
+console.log("Keys:",keys);
+
+for(let i=0;i<keys.length;i++)
+{
+    console.log(temp[keys[i]]);
+    var field=temp[keys[i]].Coordinates;
+    console.log("coord",field);
+    for(let j=0;j<field.length;j++)
+    {
+        console.log("lat : ",field[j].lat ,"lng : ",field[j].lng  );
+    }
+   // console.log(temp[keys[i]]);
+}
+//     console.log("Hello");
+//     var data= snapshot.val();
+
+//    console.log(data.email1);
 }
 
-function gotData(data) {
-    var temp = data.val();
-    var keys = Object.keys(data.val());
-    console.log("Keys:", keys);
 
-    for (let i = 0; i < keys.length; i++) {
-        var field=temp[keys[i]].Coordinates;
-        console.log("Color:",keys[i].color)
-        createPoly[i] = new google.maps.Polygon({
-            paths: field,
-            strokeColor:temp[keys[i]].color,
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor:temp[keys[i]].color,
-            fillOpacity: 0.1,
-            map: map
-        });
+function errData(err)
+{
 
-        console.log(temp[keys[i]]);
-        var field = temp[keys[i]].Coordinates;
-        console.log("coord", field);
-        for (let j = 0; j < field.length; j++) {
-            console.log("lat : ", field[j].lat, "lng : ", field[j].lng);
-        }
+console.log("Error");
+}
 
-        
 
+function fieldboundary() {
+    
+   
+    
+var firebaseRef = firebase.database().ref("Boundaries2");
+//console.log(firebaseRef);
+console.log("HI");
+firebaseRef.on('value',gotData,errData);
         j = 0;
 
         const infoWindowContent = "Field-" + (i + 1) + "</br>BSE | Roger Memorial Farm";
@@ -332,57 +335,91 @@ function gotData(data) {
             // Increase the zIndex for the click InfoWindow to make it appear above mouseover InfoWindows
             clickInfoWindow.setZIndex(zIndexBase + RMF.length);
         })
-        // console.log(temp[keys[i]]);
     }
-    //     console.log("Hello");
-    //     var data= snapshot.val();
 
-    //    console.log(data.email1);
+
+
+function gotData(data)
+{
+    var temp=data.val();
+    var keys=Object.keys(data.val());
+    console.log("Keys:",keys);
+   
+
+    for(let i=0;i<keys.length;i++)
+    {
+        let boundaryPath=[];
+
+        console.log(temp[keys[i]]);
+        var field=temp[keys[i]].Coordinates;
+        console.log("coord",field);
+        for(let j=0;j<field.length;j++)
+        {
+           // boundaryPath.add("  { lat: ",,"40.849468, lng: -96.466993 },")
+            console.log("lat : ",field[j].lat ,"lng : ",field[j].lng  );
+        }
+        createPoly[i] = new google.maps.Polygon({
+            paths: field,
+            strokeColor: RMF[i][1][0].color,
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: RMF[i][1][0].color,
+            fillOpacity: 0.1,
+            map: map
+        });
+        
+       // console.log(temp[keys[i]]);
+    }
+
+
+
+    for (let i = 0; i < RMF.length; i++) {
+        console.log("RMF[0][0] is: ", RMF[0][0][0].color);
+        
+//     console.log("Hello");
+//     var data= snapshot.val();
+  
+//    console.log(data.email1);
 }
-
-
-function errData(err) {
-
-    console.log("Error");
 }
-
 
 function generateUserBoundary() {
     // Create a drawing manager to enable polygon drawing
-    if (polygonListener == null) {
-        drawingManager = new google.maps.drawing.DrawingManager({
-            drawingMode: google.maps.drawing.OverlayType.POLYGON,
-            drawingControl: true,
-            drawingControlOptions: {
-                position: google.maps.ControlPosition.TOP_CENTER,
-                drawingModes: [google.maps.drawing.OverlayType.POLYGON]
-            },
-            polygonOptions: {
-                editable: true,
-                //draggable: true
-            }
-        });
+    if(polygonListener==null)
+    {
+    drawingManager = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.POLYGON,
+        drawingControl: true,
+        drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: [google.maps.drawing.OverlayType.POLYGON]
+        },
+        polygonOptions: {
+            editable: true,
+            //draggable: true
+        }
+    });
 
-        drawingManager.setMap(map);
+    drawingManager.setMap(map);
 
-        polygonListener = google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
-            userDefinedPolygon = polygon;
-            // Get polygon coordinates
-            // var polygonCoords = polygon.getPath().getArray();
-            // console.log('User-Defined Polygon Coordinates:', polygonCoords);
-        });
+    polygonListener = google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
+        userDefinedPolygon = polygon;
+        // Get polygon coordinates
+        // var polygonCoords = polygon.getPath().getArray();
+        // console.log('User-Defined Polygon Coordinates:', polygonCoords);
+    });
 
-        /*
-        poly = new google.maps.Polyline({
-            strokeColor: "#FF0000",
-            strokeOpacity: 1.0,
-            strokeWeight: 3,
-            map: map,
-        });
-        listen = true;
-        map.addListener("click", addLatLng);
-        */
-    }
+    /*
+    poly = new google.maps.Polyline({
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 3,
+        map: map,
+    });
+    listen = true;
+    map.addListener("click", addLatLng);
+    */
+}
 }
 
 function stopListening() {
@@ -408,7 +445,7 @@ function stopListening() {
     else {
         const boundary_alert = alert(`No Boundary made !!!`);
     }
-    polygonListener = null;
+    polygonListener=null;
 }
 function cancelBoundary() {
     if (userDefinedPolygon) {
@@ -420,7 +457,7 @@ function cancelBoundary() {
     else {
         alert(`No Boundary to delete !!!`);
     }
-    polygonListener = null;
+    polygonListener=null;
 
 }
 
