@@ -1,26 +1,19 @@
-// import { initializeApp } from 'firebase/app';
-// import { getDatabase, ref, set } from 'firebase/database';
-// import { getAuth } from 'firebase/auth';
-// const firebase = require('firebase/app');
-// require('firebase/auth');
-//import {getFirestore,collection,getDocs} from 'firebase/firestore'
+const firebaseApp = firebase.initializeApp({
+    apiKey: "AIzaSyBtCXwZ8rGVnHpMNS0_t7Pyu29huihy0U8",
+    authDomain: "maars-a5622.firebaseapp.com",
+    projectId: "maars-a5622",
+    databaseURL: "https://maars-a5622-default-rtdb.firebaseio.com/",
+    storageBucket: "maars-a5622.appspot.com",
+    messagingSenderId: "632830127984",
+    appId: "1:632830127984:web:c08ca7355fe94b10b029b5",
+});
 
-const firebaseApp = firebase.initializeApp({ 
-        apiKey: "AIzaSyBtCXwZ8rGVnHpMNS0_t7Pyu29huihy0U8",
-        authDomain: "maars-a5622.firebaseapp.com",
-        projectId: "maars-a5622",
-        databaseURL:"https://maars-a5622-default-rtdb.firebaseio.com/",
-        storageBucket: "maars-a5622.appspot.com",
-        messagingSenderId: "632830127984",
-        appId: "1:632830127984:web:c08ca7355fe94b10b029b5",
- });
-
-const db = firebaseApp.firestore();
 const auth = firebaseApp.auth();
 
 
 
-const register = () => {
+const register = () =>
+{
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
    
@@ -33,8 +26,8 @@ const register = () => {
         console.log(err.message)
     })
 }
-
-const login = () => {
+const login = () =>
+{
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
    
@@ -48,11 +41,6 @@ const login = () => {
         window.location.href = 'maps3.2.html';
     }, 1000)});
 }
-
-
-
-
-
 
 var firebaseRef = firebase.database().ref("Boundaries2");
 //console.log(firebaseRef);
