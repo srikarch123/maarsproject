@@ -7,6 +7,9 @@ var userDefinedPolygon;
 var polygonListener;
 let createPoly = [];
 
+var boundariesJson;
+var boundariesJsonKeys;
+
 const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyBtCXwZ8rGVnHpMNS0_t7Pyu29huihy0U8",
     authDomain: "maars-a5622.firebaseapp.com",
@@ -249,13 +252,23 @@ function fieldboundary() {
 }
 
 function gotData(data) {
+
     var temp = data.val();
+    //get all keys
     var keys = Object.keys(data.val());
     console.log("Keys:", keys);
-
+    boundariesJson=temp;
+    boundariesJsonKeys=keys;
+    
+    // for each field
     for (let i = 0; i < keys.length; i++) {
+
+        // get field coordinates
         var field=temp[keys[i]].Coordinates;
-        console.log("Color:",keys[i].color)
+        
+        //console.log("field:",field);
+        
+        console.log("Color:",temp[keys[i]].color)
         createPoly[i] = new google.maps.Polygon({
             paths: field,
             strokeColor:temp[keys[i]].color,

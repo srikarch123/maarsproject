@@ -203,6 +203,7 @@ async function updateMarker() {
 function get_region(RMF) {
     console.log("inside get_region: ");
     console.log("RMF value is: ", RMF);
+    
 
     map.setCenter(RMF);
     map.setZoom(18);
