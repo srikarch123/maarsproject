@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="CSS/right_side.css">
     <link rel="stylesheet" href="CSS/infowindow.css">
     <link rel="stylesheet" href="./ fontawesome-free-5.13.0-web/css/all.css">
+    <script src="JS/firebaseconfig.js"> </script>
+    <script src="JS/dbDataRetrevial.js"> </script>
+    
 
 </head>
 
@@ -249,19 +252,21 @@
 
 
         </div>
-        <script src="JS/heatMap.js"></script>
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMgnbG_ADkb0BMa6xwbn9qBNk_E64mE80&libraries=visualization,geometry,places,drawing&callback=initMap"
+        async defer></script>       
+        <!-- <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap">
+            </script> -->      
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
         <script src="JS/boundaries.js"></script>
+        <script src="JS/heatMap.js"></script>
+      
         <script src="JS/Machinery/machinery.js"></script>
         <script src="JS/map_functions.js"></script>
         <script src="JS/pathGeneration.js"></script>
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&libraries=visualization,geometry,places,drawing&callback=initMap"
-            async defer></script>
-        <!-- <script async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap">
-            </script> -->
         <script src="JS/Machinery/toggle.js"> </script>
-
 
 
         <script>
