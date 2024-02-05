@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Information</title>
+
+    <link rel="stylesheet" href="Weather.css">
+
+</head>
+
+
+
+
+<body>
+
+    <div class="weather_container">
+
+        <h1>Weather Forecast for Lincoln coming 7 Days</h1>
+
+        <div class="cards_container">
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Replace "YOUR_API_KEY" with your actual Visual Crossing API key
+
+            const apiKey = "NQ895SG87JTQLE3GKXBH39UQZ";
+
+
+
+
+            fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Lincoln/next7days?unitGroup=us&include=days&key=${apiKey}&contentType=json`, {
+
+                method: "GET",
+
+                headers: {}
+
+            })
+
+                .then(response => {
+
+                    if (!response.ok) {
+
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+
+                    }
+
+                    return response.json();
+
+                })
+
+                .then(data => {
+
+                    // Extracting specific information from each day
+
+                    console.log("DATA is: ", data.days);
+
+                    const extractedData = data.days.map(day => ({
+
+                        datetime: day.datetime,
+
+                        temp: day.temp,
+
+                        conditions: day.conditions,
+
+                        tempmax: day.tempmax,
+
+                        tempmin: day.tempmin,
+
+                        feelslike: day.feelslike,
+
+                        windspeed: day.windspeed,
+
+                        humidity: day.humidity,
+
+                        dew: day.dew,
+
+                        precip: day.precip,
+
+                        sunrise: day.sunrise,
+
+                        sunset: day.sunset,
+
+                        uvindex: day.uvindex,
+
+                    }));
+
+
+
+
+                    console.log("Extracted Data is: ", extractedData);
+
+
+
+
+                    const cards_container = document.querySelector('.cards_container');
+
+                    // const weatherInfoContainer = document.createElement('div');
+
+
+
+
+                    extractedData.forEach(day => {
+
+                        const cards = document.createElement('div');
+
+                        cards.className = 'cards';
+
+                        cards.innerHTML = `
+
+                    <h2>${day.datetime}</h2>
+
+                    <h1>${day.temp} ° </h1>
+
+                    <h2>${day.conditions}</h2>
+
+                    <p>H: ${day.tempmax}° | L: ${day.tempmin}</p>
+
+                    <ul>
+
+                        <li>Feels Like: ${day.feelslike}</li>
+
+                        <li>Wind Speed: ${day.windspeed}</li>
+
+                        <li>Humidity: ${day.humidity}</li>
+
+                        <li>Precipitation: ${day.precip}</li>
+
+                        <li>Dew: ${day.dew}</li>
+
+                
+
+                    </ul>
+
+                `;
+
+                        cards_container.appendChild(cards);
+
+                    });
+
+
+
+
+                    // document.body.appendChild(weatherInfoContainer);
+
+                })
+
+                .catch(err => {
+
+                    console.error(err);
+
+                    // Handle errors appropriately
+
+                });
+
+        });
+
+    </script>
+
+</body>
+
+
+
+
+</html>
