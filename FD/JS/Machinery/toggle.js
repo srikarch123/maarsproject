@@ -14,9 +14,11 @@ function f_appear() {
 
     const field_boundaries = document.querySelector(".field_boundaries");
     const machinary_box = document.querySelector(".machinary_box");
+    const analytics_box = document.querySelector(".analytics_box");
 
     field_boundaries.style.display = "block";
     machinary_box.style.display = "none";
+    analytics_box.style.display="none";
 
 }
 
@@ -27,11 +29,11 @@ function m_appear() {
 
     const field_boundaries = document.querySelector(".field_boundaries");
     const machinary_box = document.querySelector(".machinary_box");
-
+    const analytics_box = document.querySelector(".analytics_box");
 
     field_boundaries.style.display = "none";
     machinary_box.style.display = "block";
-
+    analytics_box.style.display="none";
 }
 
 function one_appear() {
@@ -80,4 +82,19 @@ function machine_right(){
 function show_hamburger(){
     const mainMenu = document.querySelector(".mainMenu");
     mainMenu.style.visibility = (mainMenu.style.visibility === "visible") ? "hidden" : "visible";
+}
+
+function analytics_appear(){
+    const left_side = document.getElementById("left_side");
+    console.log("left_side width is: ", left_side.style.width);
+    left_side.style.width = "200%";
+
+    const field_boundaries = document.querySelector(".field_boundaries");
+    const machinary_box = document.querySelector(".machinary_box");
+    const analytics_box = document.querySelector(".analytics_box");
+
+    field_boundaries.style.display = "none";
+    machinary_box.style.display = "none";
+    analytics_box.style.display="block";
+
 }

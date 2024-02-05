@@ -28,13 +28,13 @@
                     <li onclick="m_appear()"><a href="#"><img src="images/machinery.png"></a>
                         <p>Machinery</p>
                     </li>
-                    <li onclick="a_appear()"><a href="#"><img src="images/analytics.png"></a>
+                    <li onclick="analytics_appear()"><a href="#" id="calendar-container"><img src="images/analytics.png"></a>
                         <p>Analytics</p>
                     </li>
                 </ul>
 
                 <div class="ham_burger" onclick="show_hamburger()"><i class="fa fa-bars"></i> </div>
-
+                
             </div>
             <ul class="mainMenu">
 
@@ -48,7 +48,7 @@
                 <div class="closeMenu"><i class="fa fa-time"></i> </div>
             </ul>
         </div>
-
+        
 
         <div class="main">
             <div class="left_side" id="left_side">
@@ -221,10 +221,44 @@
 
                 </div>
 
+                <div class="analytics_box" id="analytics_box">
+                    <div class="contents">
+                        <h2 class="head2" onclick="DataAnalytics()">Analytics</h2>
+                    </div>
+                    <div class="analytics_sidebar" id="analytics_sidebar">
+                        <ol>Select the field</ol> 
+                        <select>
+                            <!-- Each option element represents an item in the dropdown -->
+                            <option value="Field-1">Field 1</option>
+                            <option value="Field-2">Field 2</option>
+                            <option value="Field-3">Field 3</option>
+                        </select>
+                        <ol>Select the tractor</ol>
+                        <select>
+                            <!-- Each option element represents an item in the dropdown -->
+                            <option value="Tractor-1">Tractor 1</option>
+                            <option value="Tractor-2">Tractor 2</option>
+                            <option value="Tractor-3">Tractor 3</option>
+                        </select>
+
+                        <ol>Select the graph</ol>
+                        <select id="options" onchange="handleSelection()">
+                            <!-- Each option element represents an item in the dropdown -->
+                            <option value="select chart">Select Chart</option>
+                            <option value="barChart">Bar Chart</option>
+                            <option value="pieChart">Pie Chart</option>
+                        </select>
+
+                        <div id="chartContainer" style="width: 900px; height: 400px;">
+                        </div>                
+                                                
+                    </div>
+                </div>
+
             </div>
-
-            <div class="map" id="map"></div>
-
+            
+                <div class="map" id="map"></div>
+                               
             <div class="right_side" id="right_side">
                 <div class="close" onclick="close_right()"><img src="images/close.png" /> </div>
                 <div class="machine_right">
@@ -253,7 +287,7 @@
 
         </div>
         <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMgnbG_ADkb0BMa6xwbn9qBNk_E64mE80&libraries=visualization,geometry,places,drawing&callback=initMap"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3NlNQ4dzbGbqhhK9dNjfZwafIBvS-824&libraries=visualization,geometry,places,drawing&callback=initMap"
         async defer></script>       
         <!-- <script async
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0AtD1_YAYUguJlQn4gUUwkEnY_BGXwXs&callback=initMap">
@@ -262,7 +296,8 @@
         <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
         <script src="JS/boundaries.js"></script>
         <script src="JS/heatMap.js"></script>
-      
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        
         <script src="JS/Machinery/machinery.js"></script>
         <script src="JS/map_functions.js"></script>
         <script src="JS/pathGeneration.js"></script>

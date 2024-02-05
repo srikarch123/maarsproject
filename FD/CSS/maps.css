@@ -357,7 +357,7 @@ body{
     gap: 10px;
     margin-top: 10px;
     overflow: scroll;
-    background-color: rgb(146, 118, 84);
+    background-color: rgb(150, 121, 87);
     /*background-color: rgb(96, 219, 235);*/
 }
 
@@ -479,8 +479,11 @@ select::after {
 
 .sp{color: orange;} .sp:hover{color: white; background-color: orange;}
 .reset{color: red;} .reset:hover{color: white; background-color: red;}
-.submit{color: green;} .submit:hover{color: white; background-color: green}
+.submit{color: green;} .submit:hover{color: white; background-color: rgb(9, 97, 9)}
 
+.submitChart{color: pink;} .submit:hover{color: white; background-color: green}
+
+.submitPie{color: green;} .submit:hover{color: red; background-color: green}
 
 
 
