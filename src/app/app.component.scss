@@ -1,0 +1,9 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  background-image: url('../assets/images/background.webp'); /* Replace 'path/to/image.jpg' with the path to your image file */
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}

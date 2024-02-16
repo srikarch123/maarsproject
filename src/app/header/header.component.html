@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container-fluid">
+    <!-- Logo and brand name -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="../assets/images/earthlogo.png" alt="Earth Logo" width="60" height="60" class="d-inline-block">
+      <span class="navbar-brand-text ms-2 d-none d-lg-inline">Machine Automation & Agricultural Robotics Lab</span>
+      <span class="navbar-brand-text ms-2 d-inline d-lg-none">MAARS Lab</span>
+    </a>
+
+    <!-- Toggler for collapsible content on mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <span class="nav-link active" aria-current="page" style="cursor: pointer;" (click)="redirectToHome()">Home</span>
+        <span class="nav-link" style="cursor: pointer;" >Equipment</span>
+        <span class="nav-link" style="cursor: pointer;" >Finance</span>
+      </div>
+      <div class="ms-lg-auto d-flex">
+        <button class="btn btn-outline-light me-2" type="button" (click)="redirectToSignUp()" >Sign Up</button>
+        <button class="btn btn-success" type="button" (click)="redirectToLogIn()">Sign In</button>
+      </div>
+    </div> 

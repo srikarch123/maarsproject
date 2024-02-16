@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'] // This should be an array
 })
-export class AppComponent {
-  title = 'fd-angular';
+export class AppComponent implements OnInit {
+  theme: string = 'corporate'; // Default theme
+
+  constructor() { }
+
+  ngOnInit(): void {
+    // Any initialization you need when the component is created
+  }
+
 }

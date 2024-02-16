@@ -1,0 +1,41 @@
+.login-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* Background color */
+  background-color: #f8f9fa; /* Example color */
+  /* Background image */
+  /* background-image: url('path/to/image.jpg'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+}
+.invalid-feedback {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+.login-container h2 {
+  color: #023c0d;;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  border-radius: 5px;
+}
+
+.login-container button {
+  border-radius: 5px;
+}
+.text-decoration-none {
+  text-decoration: none !important;
+}
+
+.text-primary {
+  color: #007bff !important;
+}
+
+.login-screen{
+  padding-top: calc(5vh);
+  padding-bottom:calc(5vh);
+}

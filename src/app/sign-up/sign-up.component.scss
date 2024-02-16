@@ -1,0 +1,32 @@
+.signup-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Background color */
+    background-color: #f8f9fa; /* Example color */
+    /* Background image */
+    /* background-image: url('path/to/image.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+  }
+  
+  .signup-container h2 {
+    color: #333;
+  }
+  
+  .signup-container input[type="email"],
+  .signup-container input[type="password"],
+  .signup-container input[type="text"] {
+    border-radius: 5px;
+  }
+  
+  .signup-container button {
+    border-radius: 5px;
+  }
+  
+  .signupcontainer{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 40px;
+  }

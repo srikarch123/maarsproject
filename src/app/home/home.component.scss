@@ -1,0 +1,61 @@
+.c-item{
+    height: 480px
+  }
+  .c-img{
+    height:100%;
+    object-fit:cover;
+    filter: brightness(0.6);
+  }
+  .d-flex{
+    display: flex;
+    direction: column;
+  }
+  
+  #maarslabpics.flex-grow-1 {
+    flex-grow: 1;
+  }
+  .d-flex.vh-100 {
+    min-height: 100vh; /* Use min-height to ensure it's at least the height of the viewport */
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  app-footer {
+    margin-top: auto; /* This pushes the footer to the bottom */
+  }
+  .img-smaller{
+    width: auto; /* Adjust the width as needed, or keep it auto */
+    height: 350px; /* Set a fixed height */
+    object-fit:contain; /* Fit the image within the dimensions without cropping */
+    padding-top: 10px;
+  }
+  @media (max-width: 768px) {
+    .navbar-brand-text {
+      display: block;
+      font-size: 14px; /* Adjust as needed */
+    }
+  }
+  .carousel-fade .carousel-inner .item {
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+  }
+  .carousel-fade .carousel-inner .active {
+    opacity: 1;
+  }
+  .carousel-fade .carousel-inner .active.left,
+  .carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+  }
+  .carousel-fade .carousel-inner .next.left,
+  .carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+  }
+  .carousel-fade .carousel-control {
+    z-index: 2;
+  }  
