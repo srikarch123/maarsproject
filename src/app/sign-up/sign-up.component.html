@@ -1,33 +1,50 @@
-
-    <div class="signupcontainer container-fluid row justify-content-end">
-      <div class="col-md-4">
-        <div class="signup-container">
-          <h2 class="text-center mb-4">Sign Up</h2>
-          <form class="form-container">
-            <!-- Email Input -->
-            <div class="mb-3">
-              <label for="signupEmail" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Enter your email">
-            </div>
-            <!-- Password Input -->
-            <div class="mb-3">
-              <label for="signupPassword" class="form-label">Password</label>
-              <input type="password" class="form-control" id="signupPassword" placeholder="Enter your password">
-            </div>
-            <!-- Confirm Password Input -->
-            <div class="mb-3">
-              <label for="confirmPassword" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
-            </div>
-            <!-- Phone Number Input -->
-            <div class="mb-3">
-              <label for="phoneNumber" class="form-label">Phone Number</label>
-              <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
-            </div>
-            <!-- Signup Button -->
-            <button type="submit" class="btn btn-success btn-block mb-3">Sign Up</button>
-          </form>
+<div class="signupcontainer container-fluid row justify-content-end">
+  <div class="col-md-4">
+    <div class="signup-container">
+      <h2 class="text-center mb-4">Sign Up</h2>
+      <form class="form-container" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)" novalidate>
+        <!-- Email Input -->
+        <div class="mb-3">
+          <label for="signupEmail" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="signupEmail" name="email" [(ngModel)]="user.email" #email="ngModel" required email aria-describedby="emailHelp" placeholder="Enter your email">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
+          </div>
         </div>
+        <!-- Password Input -->
+        <div class="mb-3">
+          <label for="signupPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="signupPassword" name="password" [(ngModel)]="user.password" #password="ngModel" required placeholder="Enter your password">
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            Password is required.
+          </div>
+        </div>
+        <!-- Confirm Password Input -->
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" required placeholder="Confirm your password" [class.is-invalid]="confirmPassword.value !== password.value && confirmPassword.touched">
+          <div *ngIf="confirmPassword.value !== password.value && confirmPassword.touched" class="alert alert-danger">
+            Passwords must match.
+          </div>
+        </div>
+        <!-- Phone Number Input -->
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel" pattern="\d{10}" placeholder="Enter your phone number" required>
+          <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
+            <div *ngIf="phoneNumber.errors?.['pattern']">Phone number must be 10 digits.</div>
+          </div>
+        </div>
+        <!-- Signup Button -->
+        <button type="submit" class="btn btn-success btn-block mb-3" [disabled]="signupForm.invalid">Sign Up</button>
+      </form>
+      <div *ngIf="submissionSuccess" class="alert alert-success">
+        Sign up successful!
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
       </div>
     </div>
-  
+  </div>
+</div>
