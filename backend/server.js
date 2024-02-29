@@ -15,7 +15,7 @@ app.use(cors({
 }));
 
 // MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.5', { useNewUrlParser: true, useUnifiedTopology: true }) // Replace 'yourDatabaseName' with your actual database name
+mongoose.connect('mongodb://127.0.0.1:27017') //replace with database as needed
     .then(() => console.log('Connected to MongoDB...'))
     .catch(err => console.error('Could not connect to MongoDB...', err));
 
@@ -47,6 +47,31 @@ app.post('/signup', async (req, res) => {
     } catch (error) {
         console.error(error); // Logging the error can help in debugging
         res.status(400).send({ message: error.message }); // Send a more user-friendly message
+    }
+});
+
+// Signin Route
+app.post('/signin', async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        // Find the user by email
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(401).send({ message: 'Email or password is incorrect' });
+        }
+
+        // Compare the provided password with the stored hashed password
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(401).send({ message: 'Email or password is incorrect' });
+        }
+
+        // If the password matches, respond with a success message (or token, etc.)
+        res.status(200).send({ message: 'Sign in successful' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ message: 'Server error' });
     }
 });
 

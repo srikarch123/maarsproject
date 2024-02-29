@@ -3,11 +3,11 @@
     <div class="col-md-4 ml-auto">
       <div class="login-container p-4">
         <h2 class="text-center mb-4">Login</h2>
-        <form class="form-container">
+        <form class="form-container" (ngSubmit)="signIn()">
           <!-- Email Input -->
           <div class="mb-3">
             <label for="loginEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="loginEmail"
+            <input type="email" class="form-control" id="loginEmail" [(ngModel)]="email" name="email"
              aria-describedby="emailHelp" placeholder="Enter your email"
              required data-feedback="loginEmail-feedback">
              <div id="loginEmail-feedback" class="invalid-feedback"></div>
@@ -15,7 +15,11 @@
           <!-- Password Input -->
           <div class="mb-3">
             <label for="loginPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password">
+            <input type="password" class="form-control" id="loginPassword" [(ngModel)]="password" name="password" placeholder="Enter your password">
+          </div>
+          <!-- Error Message -->
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
           </div>
           <!-- Login Button -->
           <button type="submit" class="btn btn-success btn-block mb-3">Login</button>

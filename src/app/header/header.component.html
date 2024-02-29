@@ -20,7 +20,8 @@
         <span class="nav-link" style="cursor: pointer;" >Finance</span>
       </div>
       <div class="ms-lg-auto d-flex">
-        <button class="btn btn-outline-light me-2" type="button" (click)="redirectToSignUp()" >Sign Up</button>
-        <button class="btn btn-success" type="button" (click)="redirectToLogIn()">Sign In</button>
+        <button *ngIf="!isLoggedIn" class="btn btn-outline-light me-2" type="button" (click)="redirectToSignUp()" >Sign Up</button>
+        <button *ngIf="!isLoggedIn" class="btn btn-success" type="button" (click)="redirectToLogIn()">Sign In</button>
+        <button *ngIf="isLoggedIn" class="btn btn-warning" type="button" (click)="signOut()">Sign Out</button>
       </div>
     </div> 
